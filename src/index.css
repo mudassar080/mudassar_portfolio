@@ -9,6 +9,10 @@
   --card-bg: #1a1a1a;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--dark-bg);
   color: #ffffff;
