@@ -24,7 +24,7 @@ import ProjectCard from "./components/ProjectCard";
 import SkillCard from "./components/SkillCard";
 import SkillsDetail from "./components/SkillsDetail";
 import ScrollToTop from "./components/ScrollToTop";
-import { Github, Linkedin, Mail } from "lucide-react";
+import ContactForm from "./components/ContactForm";
 
 function HomePage() {
   const { scrollY } = useScroll();
@@ -148,7 +148,7 @@ function HomePage() {
       image: aic,
       tech: ["React", "Python", "PostgreSQL"],
       demo: "https://aiclynx.com/",
-      github: "https://github.com",
+      github: "https://github.com/mudassar080/aic-lynx",
     },
     {
       title: "Sara Galadari - Author Website",
@@ -157,7 +157,7 @@ function HomePage() {
       image: saraPortfolio,
       tech: ["React", "CSS", "Animate CSS"],
       demo: "https://www.saragaladari.com/",
-      github: "https://github.com",
+      github: "https://github.com/mudassar080/sara-galadari-website",
     },
     {
       title: "Chefpost - Personalized Chef Services",
@@ -166,7 +166,7 @@ function HomePage() {
       image: chefPost,
       tech: ["Next.js", "MongoDB", "AWS"],
       demo: "https://chefpost.com/",
-      github: "https://github.com",
+      github: "https://github.com/mudassar080/chefpost-platform",
     },
     {
       title: "DryJect – Turf Aeration and Amendment System",
@@ -175,7 +175,7 @@ function HomePage() {
       image: DryJect,
       tech: ["Next.js", "Nest.js", "MongoDB"],
       demo: "https://www.dryject.com/",
-      github: "https://github.com",
+      github: "https://github.com/mudassar080/dryject-system",
     },
   ];
 
@@ -413,7 +413,7 @@ function HomePage() {
                 viewport={{ once: true }}
                 className="relative"
               >
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-3 lg:gap-4">
                   {[
                     { label: "Projects Completed", value: "50+" },
                     { label: "Years Experience", value: "5+" },
@@ -427,9 +427,9 @@ function HomePage() {
                       transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                       viewport={{ once: true }}
                       whileHover={{ scale: 1.05 }}
-                      className="p-6 card-gradient rounded-xl text-center border border-[var(--neon-blue)]/20"
+                      className="p-4 lg:p-6 card-gradient rounded-xl text-center border border-[var(--neon-blue)]/20"
                     >
-                      <div className="text-3xl font-bold gradient-text mb-2">{stat.value}</div>
+                                              <div className="text-xl md:text-2xl lg:text-3xl font-bold gradient-text mb-2">{stat.value}</div>
                       <div className="text-gray-400 text-sm">{stat.label}</div>
                     </motion.div>
                   ))}
@@ -445,7 +445,7 @@ function HomePage() {
         <div className="container mx-auto px-6">
           <motion.div className="text-center mb-16">
             <motion.h2 
-              className="text-5xl font-bold mb-6 gradient-text"
+              className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6 gradient-text"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -462,18 +462,19 @@ function HomePage() {
             />
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {skills.map((skill, index) => (
-              <SkillCard
-                key={skill.name}
-                name={skill.name}
-                level={skill.level}
-                skills={skill.skills}
-                icon={skill.icon}
-                index={index}
-                isInView={skillsInView}
-                skillId={skill.skillId}
-              />
+              <div key={skill.name} className="h-full">
+                <SkillCard
+                  name={skill.name}
+                  level={skill.level}
+                  skills={skill.skills}
+                  icon={skill.icon}
+                  index={index}
+                  isInView={skillsInView}
+                  skillId={skill.skillId}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -484,7 +485,7 @@ function HomePage() {
         <div className="container mx-auto px-6">
           <motion.div className="text-center mb-16">
             <motion.h2 
-              className="text-5xl font-bold mb-6 gradient-text"
+              className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6 gradient-text"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -501,7 +502,7 @@ function HomePage() {
             />
           </motion.div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-7xl mx-auto">
             {projects.map((project, index) => (
               <ProjectCard
                 key={project.title}
@@ -517,12 +518,12 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Contact Section - Social Links Only */}
+      {/* Enhanced Contact Section */}
       <section id="contact" className="py-24 bg-[var(--card-bg)] relative z-10">
         <div className="container mx-auto px-6">
           <motion.div className="text-center mb-16">
             <motion.h2 
-              className="text-5xl font-bold mb-6 gradient-text"
+              className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6 gradient-text"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -539,48 +540,7 @@ function HomePage() {
             />
           </motion.div>
           
-          <motion.div 
-            className="flex justify-center gap-8"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <motion.a
-              href="https://github.com/mudassar080"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, y: -5, color: "var(--neon-blue)" }}
-              className="text-white transition-all duration-300 p-4 rounded-full hover:bg-[var(--neon-blue)]/10 border border-[var(--neon-blue)]/20"
-            >
-              <Github className="w-8 h-8" />
-            </motion.a>
-            <motion.a
-              href="https://www.linkedin.com/in/muhammad-mudassar-33248119b/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, y: -5, color: "var(--neon-blue)" }}
-              className="text-white transition-all duration-300 p-4 rounded-full hover:bg-[var(--neon-blue)]/10 border border-[var(--neon-blue)]/20"
-            >
-              <Linkedin className="w-8 h-8" />
-            </motion.a>
-            <motion.a
-              href="mailto:nawabishok310@gmail.com"
-              whileHover={{ scale: 1.2, y: -5, color: "var(--neon-blue)" }}
-              className="text-white transition-all duration-300 p-4 rounded-full hover:bg-[var(--neon-blue)]/10 border border-[var(--neon-blue)]/20"
-            >
-              <Mail className="w-8 h-8" />
-            </motion.a>
-            <motion.a
-              href="https://www.upwork.com/freelancers/~01fda2fe9fa2cae798"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, y: -5, color: "var(--neon-blue)" }}
-              className="text-white transition-all duration-300 p-4 rounded-full hover:bg-[var(--neon-blue)]/10 border border-[var(--neon-blue)]/20"
-            >
-              <span className="text-2xl font-bold">up</span>
-            </motion.a>
-          </motion.div>
+          <ContactForm />
         </div>
       </section>
 
