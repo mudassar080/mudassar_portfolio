@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface SkillCardProps {
   name: string;
@@ -8,16 +9,19 @@ interface SkillCardProps {
   icon: ReactNode;
   index: number;
   isInView: boolean;
+  skillId: string;
 }
 
-const SkillCard = ({ name, level, skills, icon, index, isInView }: SkillCardProps) => {
+const SkillCard = ({ name, level, skills, icon, index, isInView, skillId }: SkillCardProps) => {
+  const navigate = useNavigate();
   return (
     <motion.div
       initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
       animate={isInView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       whileHover={{ y: -8, scale: 1.02 }}
-      className="card-gradient p-8 rounded-2xl relative overflow-hidden group border border-[var(--neon-blue)]/10 hover:border-[var(--neon-blue)]/30 transition-all duration-500"
+      onClick={() => navigate(`/skills/${skillId}`)}
+      className="card-gradient p-8 rounded-2xl relative overflow-hidden group border border-[var(--neon-blue)]/10 hover:border-[var(--neon-blue)]/30 transition-all duration-500 cursor-pointer"
     >
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -80,7 +84,7 @@ const SkillCard = ({ name, level, skills, icon, index, isInView }: SkillCardProp
           className="absolute -top-10 right-0"
         >
           <div className="px-3 py-1 bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] rounded-full text-white text-sm font-bold shadow-lg">
-            {level}%
+          {level}%
           </div>
         </motion.div>
       </div>

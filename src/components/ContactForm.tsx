@@ -30,22 +30,22 @@ const ContactForm = () => {
     <div className="max-w-6xl mx-auto">
       <div className="grid lg:grid-cols-2 gap-12">
         {/* Contact Information */}
-        <motion.div
+    <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
           className="space-y-8"
-        >
+    >
           <div>
             <h3 className="text-3xl font-bold mb-6 gradient-text">
               Let's Connect
-            </h3>
+        </h3>
             <p className="text-xl text-gray-300 leading-relaxed mb-8">
               I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology and development.
             </p>
           </div>
-
+          
           {/* Contact Methods */}
           <div className="space-y-6">
             {contactMethods.map((method, index) => (
@@ -84,7 +84,7 @@ const ContactForm = () => {
               </motion.a>
             ))}
           </div>
-
+          
           {/* Availability Status */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -157,7 +157,7 @@ const ContactForm = () => {
                   placeholder="your@email.com"
                 />
               </motion.div>
-            </div>
+        </div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}

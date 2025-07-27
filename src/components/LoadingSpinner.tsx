@@ -14,15 +14,15 @@ const LoadingSpinner = ({ size = "md", className = "" }: LoadingSpinnerProps) =>
 
   return (
     <div className={`flex items-center justify-center ${className}`}>
-      <motion.div
-        animate={{ rotate: 360 }}
+    <motion.div
+      animate={{ rotate: 360 }}
         transition={{
           duration: 1,
           repeat: Infinity,
           ease: "linear",
         }}
         className={`relative ${sizeClasses[size]}`}
-      >
+    >
         {/* Outer ring */}
         <div className="absolute inset-0 border-4 border-[var(--neon-blue)]/20 rounded-full" />
         
@@ -84,7 +84,7 @@ const LoadingSpinner = ({ size = "md", className = "" }: LoadingSpinnerProps) =>
         className="ml-4 text-[var(--neon-blue)] font-medium"
       >
         Loading...
-      </motion.div>
+    </motion.div>
     </div>
   );
 };

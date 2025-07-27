@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   Code2,
   Database,
@@ -21,9 +22,11 @@ import ParticleBackground from "./components/ParticleBackground";
 import TypeWriter from "./components/TypeWriter";
 import ProjectCard from "./components/ProjectCard";
 import SkillCard from "./components/SkillCard";
+import SkillsDetail from "./components/SkillsDetail";
+import ScrollToTop from "./components/ScrollToTop";
 import { Github, Linkedin, Mail } from "lucide-react";
 
-function App() {
+function HomePage() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, -100]);
 
@@ -39,49 +42,100 @@ function App() {
 
   const skills = [
     {
+      skillId: "frontend",
       name: "Frontend Development",
-      level: 90,
+      level: 95,
       skills: [
-        "React",
-        "Next.js",
-        "JavaScript",
+        "React & Next.js",
         "TypeScript",
-        "HTML",
-        "CSS",
-        "Tailwind",
-        "MUI",
-        "SCSS",
+        "Tailwind CSS",
+        "Webflow",
+        "WordPress",
+        "Plasmic",
+        "Framer Motion",
+        "Material-UI",
+        "Responsive Design",
+        "Firebase Auth",
       ],
       icon: <Globe className="w-6 h-6" />,
     },
     {
-      name: "Backend Development",
-      level: 85,
-      skills: ["Node.js", "Express", "Django", "Nest"],
+      skillId: "backend",
+      name: "Backend & API Development",
+      level: 90,
+      skills: [
+        "Node.js & Express",
+        "Python & Django",
+        "RESTful APIs",
+        "GraphQL",
+        "JWT Authentication",
+        "API Integration",
+        "Microservices",
+      ],
       icon: <Server className="w-6 h-6" />,
     },
     {
-      name: "Database Design",
-      level: 80,
-      skills: ["PostgreSQL", "MongoDB", "MySQL", "SQLite"],
+      skillId: "database",
+      name: "Database & Data Management",
+      level: 85,
+      skills: [
+        "PostgreSQL",
+        "MongoDB",
+        "MySQL",
+        "Firebase",
+        "Firestore",
+        "Redis",
+        "Data Modeling",
+        "Database Optimization",
+        "Data Migration",
+      ],
       icon: <Database className="w-6 h-6" />,
     },
     {
-      name: "System Architecture",
-      level: 85,
-      skills: ["Microservices", "Monolithic", "Serverless"],
+      skillId: "ai",
+      name: "AI & Automation Services",
+      level: 88,
+      skills: [
+        "OpenAI Integration",
+        "ChatGPT APIs",
+        "AI-Powered Features",
+        "Automation Scripts",
+        "Machine Learning",
+        "Data Analysis",
+        "Smart Chatbots",
+      ],
       icon: <Cpu className="w-6 h-6" />,
     },
     {
-      name: "Cloud Services",
+      skillId: "cloud",
+      name: "Cloud & DevOps",
       level: 85,
-      skills: ["AWS", "Azure", "Google Cloud"],
+      skills: [
+        "AWS Services",
+        "Firebase",
+        "Google Cloud",
+        "Docker & Kubernetes",
+        "CI/CD Pipelines",
+        "Serverless Architecture",
+        "Cloud Deployment",
+        "Performance Optimization",
+        "Security Best Practices",
+      ],
       icon: <Cloud className="w-6 h-6" />,
     },
     {
-      name: "API Development",
+      skillId: "ecommerce",
+      name: "E-commerce & CMS",
       level: 90,
-      skills: ["REST", "GraphQL", "gRPC"],
+      skills: [
+        "Shopify Development",
+        "WooCommerce",
+        "Custom CMS",
+        "Payment Integration",
+        "Inventory Management",
+        "Multi-vendor Platforms",
+        "Analytics & Reporting",
+      ],
       icon: <Code2 className="w-6 h-6" />,
     },
   ];
@@ -418,6 +472,7 @@ function App() {
                 icon={skill.icon}
                 index={index}
                 isInView={skillsInView}
+                skillId={skill.skillId}
               />
             ))}
           </div>
@@ -541,6 +596,18 @@ function App() {
         </motion.p>
       </footer>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/skills/:skillId" element={<SkillsDetail />} />
+      </Routes>
+    </Router>
   );
 }
 
