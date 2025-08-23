@@ -10,10 +10,52 @@ import SkillCard from "./components/SkillCard";
 import SkillsDetail from "./components/SkillsDetail";
 import ScrollToTop from "./components/ScrollToTop";
 import ContactForm from "./components/ContactForm";
-import { skills, stats2, projects } from "./utils";
+import { skills, stats2 } from "./utils";
+import aic from "./assets/aic.png";
+import saraPortfolio from "./assets/saraPortfolio.png";
+import chefPost from "./assets/chefPost.png";
+import DryJect from "./assets/DryJect.png";
+
+const projects = [
+  {
+    title: "Real-Time Aircraft Market Insights & Price Comparison Platform",
+    description:
+      "AIC Lynx is a data-driven platform for aircraft purchasing, offering real-time sales data, price comparisons, and market insights.",
+    image: aic,
+    tech: ["React", "Python", "PostgreSQL"],
+    demo: "https://aiclynx.com/",
+    github: "https://github.com/mudassar080/aic-lynx",
+  },
+  {
+    title: "Sara Galadari - Author Website",
+    description:
+      "A modern and elegant website showcasing the works of Emirati best-selling author Sara Galadari. The site features her books, author biography, and a platform for readers to connect.",
+    image: saraPortfolio,
+    tech: ["React", "CSS", "Animate CSS"],
+    demo: "https://www.saragaladari.com/",
+    github: "https://github.com/mudassar080/sara-galadari-website",
+  },
+  {
+    title: "Chefpost - Personalized Chef Services",
+    description:
+      "A seamless platform connecting users with vetted personal chefs for in-home meal prep, special occasions, and customized dining experiences.",
+    image: chefPost,
+    tech: ["Next.js", "MongoDB", "AWS"],
+    demo: "https://chefpost.com/",
+    github: "https://github.com/mudassar080/chefpost-platform",
+  },
+  {
+    title: "DryJect - Turf Aeration and Amendment System",
+    description:
+      "DryJect utilizes a high-speed, water-based injection system to simultaneously aerate and amend fine turf, enhancing soil structure and playability. ",
+    image: DryJect,
+    tech: ["Next.js", "Nest.js", "MongoDB"],
+    demo: "https://www.dryject.com/",
+    github: "https://github.com/mudassar080/dryject-system",
+  },
+];
 
 function HomePage() {
-
   const [heroRef, heroInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -26,7 +68,6 @@ function HomePage() {
 
   return (
     <div className="min-h-screen bg-[var(--dark-bg)] relative overflow-x-hidden">
-
       {/* Navigation */}
       <Navigation />
 
@@ -44,7 +85,7 @@ function HomePage() {
 
         <div
           className={`container mx-auto text-center relative z-10 max-w-4xl transition-all duration-400 ${
-            heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+            heroInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
           {/* Profile Image - Simplified */}
@@ -71,9 +112,11 @@ function HomePage() {
           {/* Name - Simplified */}
           <h1
             className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 gradient-text leading-tight hero-title relative transition-all duration-400 ${
-              heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              heroInView
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
             }`}
-            style={{ transitionDelay: '100ms' }}
+            style={{ transitionDelay: "100ms" }}
           >
             Muhammad Mudassar
           </h1>
@@ -81,9 +124,11 @@ function HomePage() {
           {/* TypeWriter Section - Simplified */}
           <div
             className={`text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 md:mb-10 text-gray-300 px-4 hero-subtitle relative transition-all duration-400 ${
-              heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              heroInView
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
             }`}
-            style={{ transitionDelay: '200ms' }}
+            style={{ transitionDelay: "200ms" }}
           >
             <TypeWriter
               sequences={[
@@ -107,9 +152,7 @@ function HomePage() {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2
-                className="text-5xl font-bold mb-6 gradient-text"
-              >
+              <h2 className="text-5xl font-bold mb-6 gradient-text">
                 About Me
               </h2>
               <div
@@ -171,9 +214,7 @@ function HomePage() {
       >
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2
-              className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6 gradient-text"
-            >
+            <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6 gradient-text">
               Technical Skills
             </h2>
             <div
@@ -203,9 +244,7 @@ function HomePage() {
       <section id="projects" className="py-24 relative z-10">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2
-              className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6 gradient-text"
-            >
+            <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6 gradient-text">
               Featured Projects
             </h2>
             <div
@@ -233,9 +272,7 @@ function HomePage() {
       <section id="contact" className="py-24 bg-[var(--card-bg)] relative z-10">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2
-              className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6 gradient-text"
-            >
+            <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6 gradient-text">
               Get in Touch
             </h2>
             <div
