@@ -12,8 +12,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import ContactForm from "./components/ContactForm";
 import { skills, stats2 } from "./utils";
 import aic from "./assets/aic.png";
-import saraPortfolio from "./assets/saraPortfolio.png";
-import chefPost from "./assets/chefPost.png";
+import saraPortfolio from "./assets/SaraPortfolio.png";
+import chefPost from "./assets/ChefPost.png";
 import DryJect from "./assets/DryJect.png";
 
 const projects = [
