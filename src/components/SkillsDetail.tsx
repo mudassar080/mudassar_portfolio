@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Globe, Server, Database, Cpu, Cloud, Code2, CheckCircle, Star, Zap } from "lucide-react";
 
@@ -176,126 +175,63 @@ const SkillsDetail = () => {
 
   return (
     <div className="min-h-screen bg-[var(--dark-bg)] relative overflow-x-hidden">
-      {/* Animated Background */}
+      {/* Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          animate={{
-            rotate: 360,
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[var(--neon-blue)]/10 to-[var(--neon-purple)]/10 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            rotate: -360,
-            scale: [1.1, 1, 1.1],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-[var(--neon-purple)]/10 to-[var(--neon-blue)]/10 rounded-full blur-3xl"
-        />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[var(--neon-blue)]/10 to-[var(--neon-purple)]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-[var(--neon-purple)]/10 to-[var(--neon-blue)]/10 rounded-full blur-3xl" />
       </div>
 
       {/* Navigation */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="fixed top-6 left-6 z-50"
-      >
-        <motion.button
+      <div className="fixed top-6 left-6 z-50">
+        <button
           onClick={() => navigate('/')}
-          whileHover={{ scale: 1.05, x: -5 }}
-          whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-2 px-4 py-2 bg-[var(--card-bg)]/80 backdrop-blur-md rounded-full text-white border border-[var(--neon-blue)]/20 hover:border-[var(--neon-blue)]/40 transition-all duration-300"
+          className="flex items-center gap-2 px-4 py-2 bg-[var(--card-bg)]/80 backdrop-blur-md rounded-full text-white border border-[var(--neon-blue)]/20 hover:border-[var(--neon-blue)]/40 transition-all duration-300 hover:scale-105 hover:-translate-x-1 active:scale-95"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Portfolio
-        </motion.button>
-      </motion.div>
+        </button>
+      </div>
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative z-10">
         <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
+          <div className="text-center max-w-4xl mx-auto">
             {/* Skill Icon */}
-            <motion.div
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] rounded-2xl mb-8"
-            >
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] rounded-2xl mb-8">
               {skill.icon}
-            </motion.div>
+            </div>
 
             {/* Skill Title */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-5xl md:text-6xl font-bold gradient-text mb-6"
-            >
+            <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-6">
               {skill.name}
-            </motion.h1>
+            </h1>
 
             {/* Skill Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl text-gray-300 mb-8 leading-relaxed"
-            >
+            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
               {skill.description}
-            </motion.p>
+            </p>
 
             {/* Skill Level */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--neon-blue)]/10 border border-[var(--neon-blue)]/30 rounded-full"
-            >
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--neon-blue)]/10 border border-[var(--neon-blue)]/30 rounded-full">
               <Star className="w-5 h-5 text-[var(--neon-blue)]" />
               <span className="text-[var(--neon-blue)] font-semibold">{skill.level}% Expertise</span>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Services Section */}
       <section className="py-20 relative z-10">
         <div className="container mx-auto px-6">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold text-center gradient-text mb-16"
-          >
+          <h2 className="text-4xl font-bold text-center gradient-text mb-16">
             Services I Offer
-          </motion.h2>
+          </h2>
 
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {skill.services.map((service, index) => (
-              <motion.div
+            {skill.services.map((service) => (
+              <div
                 key={service.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="card-gradient p-8 rounded-2xl border border-[var(--neon-blue)]/20 hover:border-[var(--neon-blue)]/40 transition-all duration-500"
+                className="card-gradient p-8 rounded-2xl border border-[var(--neon-blue)]/20 hover:border-[var(--neon-blue)]/40 transition-all duration-500 hover:scale-105"
               >
                 <div className="flex items-center gap-4 mb-6">
                   <div className="p-3 bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] rounded-xl">
@@ -313,18 +249,14 @@ const SkillsDetail = () => {
                   <div>
                     <h4 className="text-lg font-semibold text-[var(--neon-blue)] mb-4">Key Features</h4>
                     <ul className="space-y-2">
-                      {service.features.map((feature, idx) => (
-                        <motion.li
+                      {service.features.map((feature) => (
+                        <li
                           key={feature}
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.5, delay: index * 0.2 + idx * 0.1 }}
-                          viewport={{ once: true }}
                           className="flex items-center gap-2 text-gray-300"
                         >
                           <CheckCircle className="w-4 h-4 text-[var(--neon-blue)] flex-shrink-0" />
                           {feature}
-                        </motion.li>
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -333,23 +265,19 @@ const SkillsDetail = () => {
                   <div>
                     <h4 className="text-lg font-semibold text-[var(--neon-purple)] mb-4">Client Benefits</h4>
                     <ul className="space-y-2">
-                      {service.benefits.map((benefit, idx) => (
-                        <motion.li
+                      {service.benefits.map((benefit) => (
+                        <li
                           key={benefit}
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.5, delay: index * 0.2 + idx * 0.1 }}
-                          viewport={{ once: true }}
                           className="flex items-center gap-2 text-gray-300"
                         >
                           <Star className="w-4 h-4 text-[var(--neon-purple)] flex-shrink-0" />
                           {benefit}
-                        </motion.li>
+                        </li>
                       ))}
                     </ul>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -358,30 +286,19 @@ const SkillsDetail = () => {
       {/* Technologies Section */}
       <section className="py-20 bg-[var(--card-bg)] relative z-10">
         <div className="container mx-auto px-6">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold text-center gradient-text mb-16"
-          >
+          <h2 className="text-4xl font-bold text-center gradient-text mb-16">
             Technologies & Tools
-          </motion.h2>
+          </h2>
 
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {skill.technologies.map((tech, index) => (
-                <motion.div
+              {skill.technologies.map((tech) => (
+                <div
                   key={tech}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="p-4 bg-[var(--dark-bg)] rounded-xl border border-[var(--neon-blue)]/20 hover:border-[var(--neon-blue)]/40 transition-all duration-300 text-center"
+                  className="p-4 bg-[var(--dark-bg)] rounded-xl border border-[var(--neon-blue)]/20 hover:border-[var(--neon-blue)]/40 transition-all duration-300 text-center hover:scale-105 hover:-translate-y-1"
                 >
                   <span className="text-white font-medium">{tech}</span>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -391,28 +308,20 @@ const SkillsDetail = () => {
       {/* CTA Section */}
       <section className="py-20 relative z-10">
         <div className="container mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mx-auto"
-          >
+          <div className="max-w-2xl mx-auto">
             <h2 className="text-4xl font-bold gradient-text mb-6">
               Ready to Get Started?
             </h2>
             <p className="text-xl text-gray-300 mb-8">
               Let's discuss how I can help you implement these solutions for your project.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+            <button
               onClick={() => navigate('/#contact')}
-              className="px-8 py-4 bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] rounded-full text-white font-semibold hover:shadow-lg hover:shadow-[var(--neon-blue)]/25 transition-all duration-300"
+              className="px-8 py-4 bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] rounded-full text-white font-semibold hover:shadow-lg hover:shadow-[var(--neon-blue)]/25 transition-all duration-300 hover:scale-105 hover:-translate-y-1 active:scale-95"
             >
               Get in Touch
-            </motion.button>
-          </motion.div>
+            </button>
+          </div>
         </div>
       </section>
     </div>
