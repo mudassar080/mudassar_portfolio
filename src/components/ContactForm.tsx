@@ -85,7 +85,7 @@ const ContactForm = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+      <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 lg:gap-16">
         {/* Contact Information */}
         <div className="space-y-10">
           <div>
@@ -179,7 +179,7 @@ const ContactForm = () => {
         </div>
 
         {/* Contact Form */}
-        <div className="relative">
+        {/* <div className="relative">
           <div
             style={{
               boxShadow:
@@ -303,7 +303,7 @@ const ContactForm = () => {
               </form>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

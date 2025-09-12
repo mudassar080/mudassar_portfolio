@@ -12,7 +12,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import ContactForm from "./components/ContactForm";
 import { skills, stats2 } from "./utils";
 import aic from "./assets/aic.png";
-import saraPortfolio from "./assets/SaraPortfolio.png";
+// import saraPortfolio from "./assets/SaraPortfolio.png";
 import chefPost from "./assets/ChefPost.png";
 import DryJect from "./assets/DryJect.png";
 
@@ -26,15 +26,15 @@ const projects = [
     demo: "https://aiclynx.com/",
     github: "https://github.com/mudassar080/aic-lynx",
   },
-  {
-    title: "Sara Galadari - Author Website",
-    description:
-      "A modern and elegant website showcasing the works of Emirati best-selling author Sara Galadari. The site features her books, author biography, and a platform for readers to connect.",
-    image: saraPortfolio,
-    tech: ["React", "CSS", "Animate CSS"],
-    demo: "https://www.saragaladari.com/",
-    github: "https://github.com/mudassar080/sara-galadari-website",
-  },
+  // {
+  //   title: "Sara Galadari - Author Website",
+  //   description:
+  //     "A modern and elegant website showcasing the works of Emirati best-selling author Sara Galadari. The site features her books, author biography, and a platform for readers to connect.",
+  //   image: saraPortfolio,
+  //   tech: ["React", "CSS", "Animate CSS"],
+  //   demo: "https://www.saragaladari.com/",
+  //   github: "https://github.com/mudassar080/sara-galadari-website",
+  // },
   {
     title: "Chefpost - Personalized Chef Services",
     description:
