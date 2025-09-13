@@ -30,7 +30,7 @@ body.performance-optimized * {
   transition-duration: var(--transition-duration) !important;
 }
 
-/* Simplified Gradient Text - Reduced animation complexity */
+/* Simplified Gradient Text - No animation */
 .gradient-text {
   background: linear-gradient(
     45deg,
@@ -41,7 +41,7 @@ body.performance-optimized * {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: gradient-shift 4s ease-in-out infinite; /* Reduced from 3s */
+  /* Removed animation to prevent color blinking */
 }
 
 /* Simplified Card Gradient - Removed heavy shadows */
@@ -50,7 +50,7 @@ body.performance-optimized * {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Reduced from 32px */
 }
 
-/* Simplified Neon Border - Removed complex animations */
+/* Simplified Neon Border - No animation */
 .neon-border {
   position: relative;
   overflow: hidden;
@@ -71,14 +71,14 @@ body.performance-optimized * {
     var(--neon-purple)
   );
   background-size: 200% 200%;
-  animation: gradient-shift 4s ease-in-out infinite; /* Reduced from 3s */
+  /* Removed animation to prevent color blinking */
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
 
-/* Simplified Skill Bar - Reduced animation complexity */
+/* Simplified Skill Bar - No animation */
 .skill-bar {
   background: linear-gradient(
     90deg,
@@ -86,7 +86,7 @@ body.performance-optimized * {
     var(--neon-purple)
   );
   background-size: 200% 100%;
-  animation: gradient-shift 3s ease-in-out infinite; /* Reduced from 2s */
+  /* Removed animation to prevent color blinking */
   box-shadow: 0 0 10px rgba(0, 247, 255, 0.2); /* Reduced from 20px */
 }
 
@@ -114,17 +114,13 @@ body.performance-optimized * {
   box-shadow: 0 0 10px rgba(0, 247, 255, 0.15); /* Reduced from 20px */
 }
 
-/* Simplified Glow Effect */
-.glow {
-  animation: glow 3s ease-in-out infinite alternate; /* Reduced from 2s */
-}
+/* Simplified Glow Effect - No animation */
+/* .glow class removed - no longer needed */
 
-/* Simplified Pulse Effect */
-.pulse {
-  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; /* Reduced from 2s */
-}
+/* Simplified Pulse Effect - No animation */
+/* .pulse class removed - no longer needed */
 
-/* Simplified Shimmer Animation */
+/* Simplified Shimmer Animation - No animation */
 @keyframes shimmer {
   0% {
     background-position: -200px 0;
@@ -142,7 +138,7 @@ body.performance-optimized * {
     transparent
   );
   background-size: 200px 100%;
-  animation: shimmer 2s infinite; /* Reduced from 1.5s */
+  /* Removed animation to prevent color blinking */
 }
 
 /* Simplified Scrollbar */
@@ -291,22 +287,12 @@ nav a {
   min-height: 1.2em;
 }
 
-/* Typing cursor animation */
+/* Typing cursor - No animation */
 .typing-cursor {
-  animation: blink 1.2s infinite;
   color: var(--neon-blue);
   font-weight: bold;
   margin-left: 2px;
-  opacity: 0.8;
-}
-
-@keyframes blink {
-  0%, 50% {
-    opacity: 1;
-  }
-  51%, 100% {
-    opacity: 0.3;
-  }
+  opacity: 1; /* Fixed opacity, no blinking */
 }
 
 /* Simplified Button States */
@@ -455,7 +441,7 @@ nav a {
   text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue); /* Reduced from 30px */
 }
 
-/* Simplified Border Animations */
+/* Simplified Border Animations - No animation */
 .border-animate {
   position: relative;
   overflow: hidden;
@@ -474,7 +460,7 @@ nav a {
     var(--neon-blue),
     transparent
   );
-  animation: border-slide 3s linear infinite; /* Reduced from 2s */
+  /* Removed animation to prevent color blinking */
 }
 
 /* Simplified 3D Effects - Reduced perspective */
