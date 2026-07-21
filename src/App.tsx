@@ -11,21 +11,23 @@ import SkillsDetail from "./components/SkillsDetail";
 import ScrollToTop from "./components/ScrollToTop";
 import ContactForm from "./components/ContactForm";
 import { skills, stats2 } from "./utils";
-import aic from "./assets/aic.png";
+// import aic from "./assets/aic.png";
 // import saraPortfolio from "./assets/SaraPortfolio.png";
 import chefPost from "./assets/ChefPost.png";
 import DryJect from "./assets/DryJect.png";
+import Uplfted from "./assets/Uplfted.png";
+import TheraFlow from "./assets/TheraFlow.png";
 
 const projects = [
-  {
-    title: "Real-Time Aircraft Market Insights & Price Comparison Platform",
-    description:
-      "AIC Lynx is a data-driven platform for aircraft purchasing, offering real-time sales data, price comparisons, and market insights.",
-    image: aic,
-    tech: ["React", "Python", "PostgreSQL"],
-    demo: "https://aiclynx.com/",
-    github: "https://github.com/mudassar080/aic-lynx",
-  },
+  // {
+  //   title: "Real-Time Aircraft Market Insights & Price Comparison Platform",
+  //   description:
+  //     "AIC Lynx is a data-driven platform for aircraft purchasing, offering real-time sales data, price comparisons, and market insights.",
+  //   image: aic,
+  //   tech: ["React", "Python", "PostgreSQL"],
+  //   demo: "https://aiclynx.com/",
+  //   github: "https://github.com/mudassar080/aic-lynx",
+  // },
   // {
   //   title: "Sara Galadari - Author Website",
   //   description:
@@ -52,6 +54,31 @@ const projects = [
     tech: ["Next.js", "Nest.js", "MongoDB"],
     demo: "https://www.dryject.com/",
     github: "https://github.com/mudassar080/dryject-system",
+  },
+  {
+    title: "Uplfted - Community Giving Platform",
+    description:
+      "A verified community giving platform where donors fund specific wishlist items for real people in need, with items shipped directly to verified recipients and local organizations.",
+    image: Uplfted,
+    tech: ["React", "Nest.js", "PostgreSQL"],
+    demo: "https://uplfted.com/",
+    github: "https://github.com/mudassar080/uplfted-platform",
+  },
+  {
+    title: "TheraFlow - AI-Powered Therapy Practice Platform",
+    description:
+      "TheraFlow helps mental health professionals generate personalized, multilingual therapy worksheets, run AI-assisted and transcribed sessions, manage patients, and export polished PDFs — all backed by tiered subscription billing.",
+    image: TheraFlow,
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Supabase",
+      "Stripe",
+      "OpenRouter AI",
+    ],
+    demo: "https://theraflow.ai/",
+    github: "https://github.com/mudassar080/theraflow-platform",
   },
 ];
 
