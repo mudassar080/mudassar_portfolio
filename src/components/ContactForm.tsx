@@ -1,49 +1,6 @@
-import {
-  Mail,
-  Linkedin,
-  Github,
-  MessageCircle,
-  Send,
-  CheckCircle,
-} from "lucide-react";
-import { useState } from "react";
+import { Mail, Linkedin, Github, Phone, MapPin } from "lucide-react";
 
 const ContactForm = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
-    // Reset form after showing success
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 3000);
-  };
-
   const contactMethods = [
     {
       icon: <Mail className="w-6 h-6" />,
@@ -52,6 +9,14 @@ const ContactForm = () => {
       href: "mailto:mohammadmudassar9211@gmail.com",
       color: "from-blue-500 to-cyan-500",
       hoverColor: "from-blue-400 to-cyan-400",
+    },
+    {
+      icon: <Phone className="w-6 h-6" />,
+      label: "Phone",
+      value: "03107427080",
+      href: "tel:+923107427080",
+      color: "from-cyan-500 to-teal-500",
+      hoverColor: "from-cyan-400 to-teal-400",
     },
     {
       icon: <Linkedin className="w-6 h-6" />,
@@ -81,6 +46,14 @@ const ContactForm = () => {
       color: "from-green-500 to-green-600",
       hoverColor: "from-green-400 to-green-500",
     },
+    {
+      icon: <MapPin className="w-6 h-6" />,
+      label: "Location",
+      value: "Lahore, Pakistan",
+      href: undefined as string | undefined,
+      color: "from-purple-500 to-indigo-500",
+      hoverColor: "from-purple-400 to-indigo-400",
+    },
   ];
 
   return (
@@ -100,42 +73,65 @@ const ContactForm = () => {
 
           {/* Contact Methods */}
           <div className="space-y-6">
-            {contactMethods.map((method) => (
-              <a
-                key={method.label}
-                href={method.href}
-                target={method.href.startsWith("http") ? "_blank" : undefined}
-                rel={
-                  method.href.startsWith("http")
-                    ? "noopener noreferrer"
-                    : undefined
-                }
-                className="group flex items-center gap-3 lg:gap-6 p-4 lg:p-8 rounded-2xl lg:rounded-3xl bg-gradient-to-r from-[var(--card-bg)] to-[#252525] border border-[var(--neon-blue)]/20 hover:border-[var(--neon-blue)]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--neon-blue)]/20 transform-gpu hover:scale-105 hover:-translate-y-1"
-                style={{
-                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
-                }}
-              >
-                <div
-                  className={`p-3 lg:p-4 rounded-xl lg:rounded-2xl bg-gradient-to-r ${method.color} text-white shadow-xl transform-gpu group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-12`}
-                  style={{
-                    boxShadow: "0 8px 25px rgba(0, 0, 0, 0.3)",
-                  }}
+            {contactMethods.map((method) => {
+              const inner = (
+                <>
+                  <div
+                    className={`p-3 lg:p-4 rounded-xl lg:rounded-2xl bg-gradient-to-r ${method.color} text-white shadow-xl transform-gpu group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-12`}
+                    style={{
+                      boxShadow: "0 8px 25px rgba(0, 0, 0, 0.3)",
+                    }}
+                  >
+                    {method.icon}
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-xs lg:text-sm text-gray-400 mb-1 lg:mb-2 font-medium">
+                      {method.label}
+                    </div>
+                    <div className="text-white font-semibold text-sm lg:text-lg group-hover:text-[var(--neon-blue)] transition-colors duration-300">
+                      {method.value}
+                    </div>
+                  </div>
+                  {method.href && (
+                    <div className="text-[var(--neon-blue)] text-2xl font-bold transition-all duration-300 group-hover:translate-x-2 group-hover:opacity-100 opacity-0">
+                      →
+                    </div>
+                  )}
+                </>
+              );
+
+              const className =
+                "group flex items-center gap-3 lg:gap-6 p-4 lg:p-8 rounded-2xl lg:rounded-3xl bg-gradient-to-r from-[var(--card-bg)] to-[#252525] border border-[var(--neon-blue)]/20 hover:border-[var(--neon-blue)]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--neon-blue)]/20 transform-gpu hover:scale-105 hover:-translate-y-1";
+
+              if (!method.href) {
+                return (
+                  <div
+                    key={method.label}
+                    className={className}
+                    style={{ boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)" }}
+                  >
+                    {inner}
+                  </div>
+                );
+              }
+
+              return (
+                <a
+                  key={method.label}
+                  href={method.href}
+                  target={method.href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    method.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                  className={className}
+                  style={{ boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)" }}
                 >
-                  {method.icon}
-                </div>
-                <div className="flex-1">
-                  <div className="text-xs lg:text-sm text-gray-400 mb-1 lg:mb-2 font-medium">
-                    {method.label}
-                  </div>
-                  <div className="text-white font-semibold text-sm lg:text-lg group-hover:text-[var(--neon-blue)] transition-colors duration-300">
-                    {method.value}
-                  </div>
-                </div>
-                <div className="text-[var(--neon-blue)] text-2xl font-bold transition-all duration-300 group-hover:translate-x-2 group-hover:opacity-100 opacity-0">
-                  →
-                </div>
-              </a>
-            ))}
+                  {inner}
+                </a>
+              );
+            })}
           </div>
 
           {/* Availability Status */}
