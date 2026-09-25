@@ -10,7 +10,7 @@ import SkillCard from "./components/SkillCard";
 import SkillsDetail from "./components/SkillsDetail";
 import ScrollToTop from "./components/ScrollToTop";
 import ContactForm from "./components/ContactForm";
-import { skills, stats2 } from "./utils";
+import { skills, stats2, experience } from "./utils";
 // import aic from "./assets/aic.png";
 // import saraPortfolio from "./assets/SaraPortfolio.png";
 import chefPost from "./assets/ChefPost.png";
@@ -19,24 +19,30 @@ import Uplfted from "./assets/Uplfted.png";
 import TheraFlow from "./assets/TheraFlow.png";
 
 const projects = [
-  // {
-  //   title: "Real-Time Aircraft Market Insights & Price Comparison Platform",
-  //   description:
-  //     "AIC Lynx is a data-driven platform for aircraft purchasing, offering real-time sales data, price comparisons, and market insights.",
-  //   image: aic,
-  //   tech: ["React", "Python", "PostgreSQL"],
-  //   demo: "https://aiclynx.com/",
-  //   github: "https://github.com/mudassar080/aic-lynx",
-  // },
-  // {
-  //   title: "Sara Galadari - Author Website",
-  //   description:
-  //     "A modern and elegant website showcasing the works of Emirati best-selling author Sara Galadari. The site features her books, author biography, and a platform for readers to connect.",
-  //   image: saraPortfolio,
-  //   tech: ["React", "CSS", "Animate CSS"],
-  //   demo: "https://www.saragaladari.com/",
-  //   github: "https://github.com/mudassar080/sara-galadari-website",
-  // },
+  {
+    title: "TheraFlow - AI-Powered Therapy Practice Platform",
+    description:
+      "AI-powered therapy worksheet platform for clinicians with patient management, worksheet generation, PDF export, freemium-to-paid subscriptions with free trials, usage limits, referrals, and ads conversion tracking.",
+    image: TheraFlow,
+    tech: ["Next.js", "TypeScript", "Supabase", "Stripe"],
+    demo: "https://theraflow.ai/",
+  },
+  {
+    title: "Uplfted - Community Giving Platform",
+    description:
+      "Crowdfunding platform connecting donors with verified recipients via wishlists, Stripe payments, Community Fund subscriptions, and admin order/fulfillment management.",
+    image: Uplfted,
+    tech: ["React.js", "NestJS", "PostgreSQL", "Stripe"],
+    demo: "https://uplfted.com/",
+  },
+  {
+    title: "DryJect - Franchise Operations Platform",
+    description:
+      "Franchise operations platform for turf and golf-course aeration — franchisee/territory management, job tracking, monthly and yearly financial reporting, multi-currency analytics, and S3 document management.",
+    image: DryJect,
+    tech: ["Next.js", "NestJS", "PostgreSQL", "Prisma"],
+    demo: "https://www.dryject.com/",
+  },
   {
     title: "Chefpost - Personalized Chef Services",
     description:
@@ -44,43 +50,61 @@ const projects = [
     image: chefPost,
     tech: ["Next.js", "MongoDB", "AWS"],
     demo: "https://chefpost.com/",
-    github: "https://github.com/mudassar080/chefpost-platform",
-  },
-  {
-    title: "DryJect - Turf Aeration and Amendment System",
-    description:
-      "DryJect utilizes a high-speed, water-based injection system to simultaneously aerate and amend fine turf, enhancing soil structure and playability. ",
-    image: DryJect,
-    tech: ["Next.js", "Nest.js", "MongoDB"],
-    demo: "https://www.dryject.com/",
-    github: "https://github.com/mudassar080/dryject-system",
-  },
-  {
-    title: "Uplfted - Community Giving Platform",
-    description:
-      "A verified community giving platform where donors fund specific wishlist items for real people in need, with items shipped directly to verified recipients and local organizations.",
-    image: Uplfted,
-    tech: ["React", "Nest.js", "PostgreSQL"],
-    demo: "https://uplfted.com/",
-    github: "https://github.com/mudassar080/uplfted-platform",
-  },
-  {
-    title: "TheraFlow - AI-Powered Therapy Practice Platform",
-    description:
-      "TheraFlow helps mental health professionals generate personalized, multilingual therapy worksheets, run AI-assisted and transcribed sessions, manage patients, and export polished PDFs — all backed by tiered subscription billing.",
-    image: TheraFlow,
-    tech: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Supabase",
-      "Stripe",
-      "OpenRouter AI",
-    ],
-    demo: "https://theraflow.ai/",
-    github: "https://github.com/mudassar080/theraflow-platform",
   },
 ];
+
+const moreProjects = [
+  {
+    title: "gCASTEL Immobili",
+    company: "Ubiquify",
+    description:
+      "Real estate sales marketplace for property catalogs, priority tickets, and purchase proposals, with Stripe Connect checkout, contract e-sign, and role-based buyer/company/superadmin workflows.",
+    tech: ["React.js", "Django REST", "PostgreSQL", "Stripe", "Clerk"],
+  },
+  {
+    title: "Bev360",
+    company: "Ubiquify",
+    description:
+      "B2B beverage sales CMS for order management, inventory control, and customer interactions.",
+    tech: ["React.js"],
+  },
+  {
+    title: "Quality Insulation",
+    company: "Ubiquify",
+    description:
+      "Internal ops platform for insulation estimates, expense document OCR, inbound email sync, and QuickBooks Online workflows with role-based access for admins and foremen.",
+    tech: ["React.js", "Node.js", "Express.js", "PostgreSQL", "AWS S3"],
+  },
+  {
+    title: "SEO Agent",
+    company: "Ubiquify",
+    description:
+      "SEO analytics platform using Google Search Console API to visualize keywords, clicks, impressions, and website performance metrics.",
+    tech: ["React.js", "Node.js", "Express.js", "MongoDB"],
+  },
+  {
+    title: "Guard Metrics",
+    company: "Techmatetech",
+    description:
+      "Security management system for guard data and location tracking; frontend API integration, application logic, and Jest test cases.",
+    tech: ["React.js", "Jest"],
+  },
+  {
+    title: "Birth By US",
+    company: "Techmatetech",
+    description:
+      "Healthcare application for pregnancy-related consultations; backend APIs and Angular frontend API integration and page development.",
+    tech: ["Angular", "Node.js"],
+  },
+  {
+    title: "5axis Pharmacy",
+    company: "CodeDevza",
+    description:
+      "Pharmacy application involving authentication, API integration, and frontend data tables.",
+    tech: ["React.js", "REST APIs"],
+  },
+];
+
 
 function HomePage() {
   const [heroRef, heroInView] = useInView({
@@ -159,13 +183,13 @@ function HomePage() {
           >
             <TypeWriter
               sequences={[
-                "Building Digital Solutions That Matter",
+                "MERN Stack Developer | Software Engineer",
                 2000,
-                "Full-Stack Developer",
+                "Building AI-powered web products",
                 2000,
-                "MERN Stack Expert",
+                "Full-Stack Developer · Lahore",
                 2000,
-                "Problem Solver",
+                "4+ Years Shipping Products",
                 2000,
               ]}
               className="gradient-text typing-text"
@@ -191,24 +215,57 @@ function HomePage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <p className="text-xl text-gray-300 leading-relaxed">
-                  I'm a passionate full-stack developer with 5+ years of
-                  experience in building scalable web applications. My expertise
-                  spans across modern web technologies, cloud architecture, and
-                  DevOps practices.
+                  MERN Stack Developer and Software Engineer with 5 years of
+                  professional experience building and maintaining full-stack
+                  web applications, with growing hands-on experience integrating
+                  AI-powered features and modern AI technologies into web
+                  applications.
                 </p>
                 <p className="text-xl text-gray-300 leading-relaxed">
-                  I love turning complex problems into simple, beautiful, and
-                  intuitive solutions that make a real impact on users' lives.
+                  Strong expertise in React.js, Next.js, Node.js, Express.js,
+                  MongoDB, TypeScript, Redux, SQL/NoSQL databases, REST APIs,
+                  and responsive UI development. Comfortable collaborating with
+                  cross-functional teams and leveraging modern AI tools to
+                  improve workflows and product functionality.
                 </p>
                 <div className="flex flex-wrap gap-4 pt-4">
                   <div className="px-4 py-2 bg-[var(--neon-blue)]/10 border border-[var(--neon-blue)]/30 rounded-full text-[var(--neon-blue)] text-sm font-medium">
                     5+ Years Experience
                   </div>
                   <div className="px-4 py-2 bg-[var(--neon-purple)]/10 border border-[var(--neon-purple)]/30 rounded-full text-[var(--neon-purple)] text-sm font-medium">
-                    MERN Stack Expert
+                    Lahore, Pakistan
                   </div>
                   <div className="px-4 py-2 bg-[var(--neon-blue)]/10 border border-[var(--neon-blue)]/30 rounded-full text-[var(--neon-blue)] text-sm font-medium">
-                    Problem Solver
+                    MERN + AI
+                  </div>
+                </div>
+
+                <div className="pt-4 space-y-3 border-t border-[var(--neon-blue)]/20">
+                  <div>
+                    <h3 className="text-sm font-semibold text-[var(--neon-blue)] mb-1">
+                      Education
+                    </h3>
+                    <p className="text-sm text-gray-400">
+                      MSc Information Technology — University of Education,
+                      Lahore (CGPA 3.26)
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-[var(--neon-blue)] mb-1">
+                      Certifications
+                    </h3>
+                    <p className="text-sm text-gray-400">
+                      MERN Stack Developer — Techmatetech LLC · WordPress
+                      Developer — Rex Technologies
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-[var(--neon-blue)] mb-1">
+                      Languages
+                    </h3>
+                    <p className="text-sm text-gray-400">
+                      English — Professional Working · Urdu — Native/Bilingual
+                    </p>
                   </div>
                 </div>
               </div>
@@ -233,11 +290,85 @@ function HomePage() {
         </div>
       </section>
 
+      {/* Experience Section */}
+      <section id="experience" className="py-24 bg-[var(--card-bg)] relative z-10">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6 gradient-text">
+              Experience
+            </h2>
+            <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-6">
+              Every role has centered on shipping products that scale — with
+              performance, security, and reliability treated as first-class
+              requirements, not afterthoughts.
+            </p>
+            <div className="h-1 w-[100px] bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] mx-auto rounded-full" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
+            {[
+              {
+                title: "Scalability",
+                text: "Architectures and data flows built to grow with users and features.",
+              },
+              {
+                title: "Performance",
+                text: "Faster APIs, leaner UIs, and optimized database operations.",
+              },
+              {
+                title: "Security",
+                text: "Auth, access control, and secure handling of sensitive data.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="p-4 rounded-xl border border-[var(--neon-blue)]/20 bg-[var(--dark-bg)]/60 text-center"
+              >
+                <h3 className="text-[var(--neon-blue)] font-semibold mb-1">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-400">{item.text}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="relative space-y-10">
+            <div className="absolute left-0 top-2 bottom-2 w-px bg-[var(--neon-blue)]/20 hidden sm:block ml-1.5" />
+            {experience.map((job) => (
+              <article key={`${job.company}-${job.period}`} className="relative sm:pl-10">
+                <div className="hidden sm:block absolute left-0 top-2 w-3 h-3 rounded-full bg-[var(--neon-blue)] ml-0" />
+                <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-bold text-white">
+                      {job.role}
+                    </h3>
+                    <p className="text-[var(--neon-blue)] font-medium">
+                      {job.company}
+                    </p>
+                  </div>
+                  <p className="text-sm text-gray-400">{job.period}</p>
+                </div>
+                <ul className="space-y-2">
+                  {job.bullets.map((bullet) => (
+                    <li
+                      key={bullet}
+                      className="text-gray-300 text-sm md:text-base leading-relaxed pl-4 border-l border-[var(--neon-blue)]/20"
+                    >
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Skills Section - Optimized */}
       <section
         id="skills"
         ref={skillsRef}
-        className="py-24 bg-[var(--card-bg)] relative z-10"
+        className="py-24 relative z-10"
       >
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
@@ -292,11 +423,45 @@ function HomePage() {
               />
             ))}
           </div>
+
+          <div className="max-w-7xl mx-auto mt-16">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-6">
+              More selected work
+            </h3>
+            <div className="space-y-0 border-t border-[var(--neon-blue)]/20">
+              {moreProjects.map((project) => (
+                <div
+                  key={project.title}
+                  className="py-5 border-b border-[var(--neon-blue)]/15 grid md:grid-cols-[minmax(0,1fr)_2fr] gap-3 md:gap-6"
+                >
+                  <div>
+                    <h4 className="font-bold text-white">{project.title}</h4>
+                    <p className="text-sm text-[var(--neon-blue)] mt-0.5">
+                      {project.company}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mt-2">
+                      {project.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="text-xs text-gray-400 border border-[var(--neon-blue)]/20 px-2 py-0.5 rounded"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Contact Section - Optimized */}
-      <section id="contact" className="py-24 bg-[var(--card-bg)] relative z-10">
+      <section id="contact" className="py-24 relative z-10">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6 gradient-text">
@@ -314,7 +479,7 @@ function HomePage() {
 
       <footer className="py-12 text-center text-gray-400 relative z-10 border-t border-[var(--neon-blue)]/20">
         <p className="text-lg">
-          © 2025 Mudassar Developer. All rights reserved.
+          © 2026 Muhammad Mudassar. All rights reserved.
         </p>
       </footer>
     </div>

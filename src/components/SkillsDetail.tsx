@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, Globe, Server, Database, Cpu, Cloud, Code2, CheckCircle, Star, Zap } from "lucide-react";
+import { ArrowLeft, Globe, Server, Database, Cpu, Cloud, Code2, CreditCard, CheckCircle, Star, Zap } from "lucide-react";
 
 interface SkillDetail {
   id: string;
@@ -45,12 +45,12 @@ const skillsData: SkillDetail[] = [
     description: "Building robust, scalable backend systems and APIs that power modern web applications and mobile apps.",
     icon: <Server className="w-8 h-8" />,
     level: 90,
-    technologies: ["Node.js & Express", "Python & Django", "RESTful APIs", "GraphQL", "JWT Authentication", "API Integration", "Microservices"],
+    technologies: ["Node.js & Express", "Nest.js", "RESTful APIs", "Microservices", "API Integration", "JWT Authentication"],
     services: [
       {
         title: "Custom API Development",
         description: "Design and develop RESTful APIs and GraphQL endpoints for seamless data exchange between frontend and backend.",
-        features: ["RESTful APIs", "GraphQL", "JWT Authentication", "Rate Limiting", "API Documentation"],
+        features: ["RESTful APIs", "JWT Authentication", "Rate Limiting", "API Documentation"],
         benefits: ["Scalable Architecture", "Secure Data Transfer", "Easy Integration", "Comprehensive Documentation"]
       },
       {
@@ -62,12 +62,42 @@ const skillsData: SkillDetail[] = [
     ]
   },
   {
+    id: "payments",
+    name: "Payments & Billing",
+    description: "End-to-end payment flows with Stripe — checkout, subscriptions, Connect payouts, webhooks, and secure billing logic.",
+    icon: <CreditCard className="w-8 h-8" />,
+    level: 90,
+    technologies: [
+      "Stripe Integration",
+      "Stripe Connect",
+      "Checkout Flows",
+      "Subscription Billing",
+      "Payment Webhooks",
+      "Trials & Usage Limits",
+      "Secure Payment Handling",
+    ],
+    services: [
+      {
+        title: "Stripe checkout & subscriptions",
+        description: "Integrate Stripe for one-time payments, recurring subscriptions, free trials, and usage-based billing limits.",
+        features: ["Checkout sessions", "Subscription plans", "Trial periods", "Usage metering"],
+        benefits: ["Faster monetization", "Reliable billing", "Fewer payment bugs", "Clear upgrade paths"]
+      },
+      {
+        title: "Connect & marketplace payouts",
+        description: "Build marketplace-style payment flows with Stripe Connect, webhooks, and secure handling of sensitive payment data.",
+        features: ["Stripe Connect", "Webhook handling", "Payout workflows", "PCI-aware design"],
+        benefits: ["Trusted checkout", "Automated reconciliation", "Secure money movement", "Scalable commerce"]
+      }
+    ]
+  },
+  {
     id: "database",
     name: "Database & Data Management",
     description: "Designing efficient database solutions and managing data to ensure optimal performance and reliability.",
     icon: <Database className="w-8 h-8" />,
     level: 85,
-    technologies: ["PostgreSQL", "MongoDB", "MySQL", "Firebase", "Firestore", "Redis", "Data Modeling", "Database Optimization", "Data Migration"],
+    technologies: ["PostgreSQL", "MongoDB", "SQL", "NoSQL"],
     services: [
       {
         title: "Database Design & Optimization",
@@ -129,23 +159,23 @@ const skillsData: SkillDetail[] = [
   },
   {
     id: "ecommerce",
-    name: "E-commerce & CMS",
-    description: "Building complete e-commerce solutions and content management systems for online businesses.",
+    name: "State & Testing",
+    description: "Client state with Redux, API verification with Postman, unit tests with Jest, and delivery tracking in Jira.",
     icon: <Code2 className="w-8 h-8" />,
     level: 90,
-    technologies: ["Shopify Development", "WooCommerce", "Custom CMS", "Payment Integration", "Inventory Management", "Multi-vendor Platforms", "Analytics & Reporting"],
+    technologies: ["Redux", "Jest", "Jira", "Postman"],
     services: [
       {
-        title: "E-commerce Platforms",
-        description: "Create custom e-commerce solutions using Shopify, WooCommerce, or custom platforms for online businesses.",
-        features: ["Product Management", "Payment Processing", "Inventory Tracking", "Order Management"],
-        benefits: ["Increased Sales", "Better Customer Experience", "Streamlined Operations", "Analytics Insights"]
+        title: "State management",
+        description: "Predictable client state for complex React apps using Redux patterns that stay maintainable.",
+        features: ["Redux stores", "Async data flows", "Shared app state", "Debuggable actions"],
+        benefits: ["Predictable UI", "Easier debugging", "Scalable client logic", "Team consistency"]
       },
       {
-        title: "Content Management Systems",
-        description: "Build custom CMS solutions that allow clients to easily manage and update their website content.",
-        features: ["Content Editor", "Media Management", "User Roles", "SEO Tools"],
-        benefits: ["Easy Content Updates", "Reduced Maintenance Costs", "Better SEO", "User-Friendly Interface"]
+        title: "Quality & delivery",
+        description: "Jest coverage for critical logic, Postman collections for APIs, and Jira for sprint visibility.",
+        features: ["Jest test cases", "API verification", "Regression checks", "Sprint tracking"],
+        benefits: ["Fewer regressions", "Faster QA", "Clear delivery status", "Reliable releases"]
       }
     ]
   }
