@@ -212,23 +212,23 @@ function HomePage() {
               />
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-start">
               <div className="space-y-6">
-                <p className="text-xl text-gray-300 leading-relaxed">
+                <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
                   MERN Stack Developer and Software Engineer with 5 years of
                   professional experience building and maintaining full-stack
                   web applications, with growing hands-on experience integrating
                   AI-powered features and modern AI technologies into web
                   applications.
                 </p>
-                <p className="text-xl text-gray-300 leading-relaxed">
+                <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
                   Strong expertise in React.js, Next.js, Node.js, Express.js,
                   MongoDB, TypeScript, Redux, SQL/NoSQL databases, REST APIs,
                   and responsive UI development. Comfortable collaborating with
                   cross-functional teams and leveraging modern AI tools to
                   improve workflows and product functionality.
                 </p>
-                <div className="flex flex-wrap gap-4 pt-4">
+                <div className="flex flex-wrap gap-3 pt-2">
                   <div className="px-4 py-2 bg-[var(--neon-blue)]/10 border border-[var(--neon-blue)]/30 rounded-full text-[var(--neon-blue)] text-sm font-medium">
                     5+ Years Experience
                   </div>
@@ -239,13 +239,29 @@ function HomePage() {
                     MERN + AI
                   </div>
                 </div>
+              </div>
 
-                <div className="pt-4 space-y-3 border-t border-[var(--neon-blue)]/20">
+              <div className="flex flex-col gap-5">
+                <div className="grid grid-cols-2 gap-3 lg:gap-4">
+                  {stats2.map((stat: { label: string; value: string }) => (
+                    <div
+                      key={stat.label}
+                      className="p-5 lg:p-6 card-gradient rounded-xl text-center border border-[var(--neon-blue)]/20 transition-all duration-300 hover:scale-105 min-h-[110px] flex flex-col items-center justify-center"
+                    >
+                      <div className="text-2xl lg:text-3xl font-bold gradient-text mb-1">
+                        {stat.value}
+                      </div>
+                      <div className="text-gray-400 text-sm">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="space-y-4 p-5 lg:p-6 card-gradient rounded-xl border border-[var(--neon-blue)]/20">
                   <div>
                     <h3 className="text-sm font-semibold text-[var(--neon-blue)] mb-1">
                       Education
                     </h3>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-gray-400 leading-relaxed">
                       MSc Information Technology — University of Education,
                       Lahore (CGPA 3.26)
                     </p>
@@ -254,7 +270,7 @@ function HomePage() {
                     <h3 className="text-sm font-semibold text-[var(--neon-blue)] mb-1">
                       Certifications
                     </h3>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-gray-400 leading-relaxed">
                       MERN Stack Developer — Techmatetech LLC · WordPress
                       Developer — Rex Technologies
                     </p>
@@ -263,26 +279,10 @@ function HomePage() {
                     <h3 className="text-sm font-semibold text-[var(--neon-blue)] mb-1">
                       Languages
                     </h3>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-gray-400 leading-relaxed">
                       English — Professional Working · Urdu — Native/Bilingual
                     </p>
                   </div>
-                </div>
-              </div>
-
-              <div className="relative">
-                <div className="grid grid-cols-2 gap-3 lg:gap-4">
-                  {stats2.map((stat: { label: string; value: string }) => (
-                    <div
-                      key={stat.label}
-                      className="p-4 lg:p-6 card-gradient rounded-xl text-center border border-[var(--neon-blue)]/20 transition-all duration-300 hover:scale-105"
-                    >
-                      <div className="text-xl md:text-2xl lg:text-3xl font-bold gradient-text mb-2">
-                        {stat.value}
-                      </div>
-                      <div className="text-gray-400 text-sm">{stat.label}</div>
-                    </div>
-                  ))}
                 </div>
               </div>
             </div>
