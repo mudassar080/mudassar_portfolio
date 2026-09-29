@@ -34,18 +34,18 @@ const ContactForm = () => {
       color: "from-gray-700 to-gray-800",
       hoverColor: "from-gray-600 to-gray-700",
     },
-    {
-      icon: (
-        <div className="w-6 h-6 flex items-center justify-center font-bold text-white">
-          up
-        </div>
-      ),
-      label: "Upwork",
-      value: "Hire me on Upwork",
-      href: "https://www.upwork.com/freelancers/~01fda2fe9fa2cae798",
-      color: "from-green-500 to-green-600",
-      hoverColor: "from-green-400 to-green-500",
-    },
+    // {
+    //   icon: (
+    //     <div className="w-6 h-6 flex items-center justify-center font-bold text-white">
+    //       up
+    //     </div>
+    //   ),
+    //   label: "Upwork",
+    //   value: "Hire me on Upwork",
+    //   href: "https://www.upwork.com/freelancers/~01fda2fe9fa2cae798",
+    //   color: "from-green-500 to-green-600",
+    //   hoverColor: "from-green-400 to-green-500",
+    // },
     {
       icon: <MapPin className="w-6 h-6" />,
       label: "Location",
@@ -148,7 +148,7 @@ const ContactForm = () => {
             </p>
           </div>
 
-          {/* Upwork Section */}
+          {/* Upwork Section — temporarily hidden
           <div className="p-4 lg:p-8 rounded-2xl lg:rounded-3xl bg-gradient-to-r from-green-500/15 via-green-600/10 to-green-700/15 border border-green-500/40 backdrop-blur-sm transition-all duration-300 hover:scale-105">
             <div className="flex items-center gap-4 mb-4">
               <div className="w-4 h-4 bg-green-500 rounded-full animate-pulse" />
@@ -172,6 +172,7 @@ const ContactForm = () => {
               View Profile
             </a>
           </div>
+          */}
         </div>
 
         {/* Contact Form */}
