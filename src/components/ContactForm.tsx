@@ -77,23 +77,23 @@ const ContactForm = () => {
               const inner = (
                 <>
                   <div
-                    className={`p-3 lg:p-4 rounded-xl lg:rounded-2xl bg-gradient-to-r ${method.color} text-white shadow-xl transform-gpu group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-12`}
+                    className={`shrink-0 p-3 lg:p-4 rounded-xl lg:rounded-2xl bg-gradient-to-r ${method.color} text-white shadow-xl transform-gpu group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-12`}
                     style={{
                       boxShadow: "0 8px 25px rgba(0, 0, 0, 0.3)",
                     }}
                   >
                     {method.icon}
                   </div>
-                  <div className="flex-1">
+                  <div className="min-w-0 flex-1 overflow-hidden">
                     <div className="text-xs lg:text-sm text-gray-400 mb-1 lg:mb-2 font-medium">
                       {method.label}
                     </div>
-                    <div className="text-white font-semibold text-sm lg:text-lg group-hover:text-[var(--neon-blue)] transition-colors duration-300">
+                    <div className="text-white font-semibold text-sm lg:text-lg group-hover:text-[var(--neon-blue)] transition-colors duration-300 break-all">
                       {method.value}
                     </div>
                   </div>
                   {method.href && (
-                    <div className="text-[var(--neon-blue)] text-2xl font-bold transition-all duration-300 group-hover:translate-x-2 group-hover:opacity-100 opacity-0">
+                    <div className="hidden sm:block shrink-0 text-[var(--neon-blue)] text-2xl font-bold transition-all duration-300 group-hover:translate-x-2 group-hover:opacity-100 opacity-0">
                       →
                     </div>
                   )}
@@ -101,7 +101,7 @@ const ContactForm = () => {
               );
 
               const className =
-                "group flex items-center gap-3 lg:gap-6 p-4 lg:p-8 rounded-2xl lg:rounded-3xl bg-gradient-to-r from-[var(--card-bg)] to-[#252525] border border-[var(--neon-blue)]/20 hover:border-[var(--neon-blue)]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--neon-blue)]/20 transform-gpu hover:scale-105 hover:-translate-y-1";
+                "group flex items-center gap-3 lg:gap-6 p-4 lg:p-8 rounded-2xl lg:rounded-3xl bg-gradient-to-r from-[var(--card-bg)] to-[#252525] border border-[var(--neon-blue)]/20 hover:border-[var(--neon-blue)]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--neon-blue)]/20 transform-gpu sm:hover:scale-105 sm:hover:-translate-y-1 min-w-0 overflow-hidden";
 
               if (!method.href) {
                 return (
