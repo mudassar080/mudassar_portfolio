@@ -93,7 +93,7 @@ export const skills = [
 ];
 
 export const stats2 = [
-  { label: "Years Experience", value: "5+" },
+  { label: "Years Experience", value: "4+" },
   { label: "Selected Projects", value: "10+" },
   { label: "Companies", value: "3" },
   { label: "Focus", value: "MERN + AI" },

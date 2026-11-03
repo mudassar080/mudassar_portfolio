@@ -1,8 +1,5 @@
 import { useInView } from "react-intersection-observer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Code2, Sparkles } from "lucide-react";
-import profile from "./assets/Profile.jpeg";
-// Import new components
 import Navigation from "./components/Navigation";
 import TypeWriter from "./components/TypeWriter";
 import ProjectCard from "./components/ProjectCard";
@@ -11,8 +8,6 @@ import SkillsDetail from "./components/SkillsDetail";
 import ScrollToTop from "./components/ScrollToTop";
 import ContactForm from "./components/ContactForm";
 import { skills, stats2, experience } from "./utils";
-// import aic from "./assets/aic.png";
-// import saraPortfolio from "./assets/SaraPortfolio.png";
 import chefPost from "./assets/ChefPost.png";
 import DryJect from "./assets/DryJect.png";
 import Uplfted from "./assets/Uplfted.png";
@@ -105,82 +100,65 @@ const moreProjects = [
   },
 ];
 
+function SectionHeading({
+  title,
+  subtitle,
+}: {
+  title: string;
+  subtitle?: string;
+}) {
+  return (
+    <div className="mb-12 md:mb-14">
+      <h2 className="text-3xl font-semibold tracking-tight text-zinc-100 md:text-4xl lg:text-5xl">
+        {title}
+      </h2>
+      {subtitle && (
+        <p className="mt-3 max-w-2xl text-base text-zinc-400 md:text-lg">
+          {subtitle}
+        </p>
+      )}
+      <div className="section-rule mt-5 ml-0" />
+    </div>
+  );
+}
 
 function HomePage() {
   const [heroRef, heroInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
   const [skillsRef, skillsInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
   return (
-    <div className="min-h-screen bg-[var(--dark-bg)] relative overflow-x-hidden">
-      {/* Navigation */}
+    <div className="relative min-h-screen overflow-x-hidden bg-[var(--dark-bg)]">
       <Navigation />
 
-      {/* Hero Section - Optimized */}
+      {/* Hero */}
       <header
         id="home"
         ref={heroRef}
-        className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 px-4"
+        className="relative flex min-h-[100svh] items-center pt-20"
       >
-        {/* Simplified Background Elements - Reduced blur and size */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-[var(--neon-blue)]/3 to-[var(--neon-purple)]/3 rounded-full blur-xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-56 h-56 bg-gradient-to-l from-[var(--neon-purple)]/3 to-[var(--neon-blue)]/3 rounded-full blur-xl" />
-        </div>
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/3 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-400/10 blur-[100px]"
+        />
 
         <div
-          className={`container mx-auto text-center relative z-10 max-w-4xl transition-all duration-400 ${
-            heroInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+          className={`section-shell relative z-10 py-16 transition-all duration-500 ${
+            heroInView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
           }`}
         >
-          {/* Profile Image - Simplified */}
-          <div className="relative mb-8 md:mb-12">
-            <div className="relative">
-              <img
-                src={profile}
-                alt="Profile"
-                className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full mx-auto object-cover border-4 border-[var(--neon-blue)] relative z-10 transition-all duration-150 hover:scale-105"
-              />
-              {/* Simple Glow Effect - Reduced opacity */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] blur-md opacity-15" />
-            </div>
-
-            {/* Static Floating Elements - No animations */}
-            <div className="absolute -top-4 -right-4 text-[var(--neon-blue)]">
-              <Sparkles className="w-6 h-6" />
-            </div>
-            <div className="absolute -bottom-4 -left-4 text-[var(--neon-purple)]">
-              <Code2 className="w-6 h-6" />
-            </div>
-          </div>
-
-          {/* Name - Simplified */}
-          <h1
-            className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 gradient-text leading-tight hero-title relative transition-all duration-400 ${
-              heroInView
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-            }`}
-            style={{ transitionDelay: "100ms" }}
-          >
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.18em] text-cyan-400">
+            Lahore · MERN · AI
+          </p>
+          <h1 className="max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight text-zinc-50 sm:text-5xl md:text-6xl lg:text-7xl">
             Muhammad Mudassar
           </h1>
-
-          {/* TypeWriter Section - Simplified */}
-          <div
-            className={`text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 md:mb-10 text-gray-300 px-4 hero-subtitle relative transition-all duration-400 ${
-              heroInView
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-            }`}
-            style={{ transitionDelay: "200ms" }}
-          >
+          <div className="mt-5 min-h-[2em] text-xl text-zinc-300 md:text-2xl">
             <TypeWriter
               sequences={[
                 "MERN Stack Developer | Software Engineer",
@@ -192,97 +170,104 @@ function HomePage() {
                 "4+ Years Shipping Products",
                 2000,
               ]}
-              className="gradient-text typing-text"
+              className="typing-text text-zinc-300"
             />
+          </div>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-zinc-400 md:text-lg">
+            Full-stack engineer focused on scalable apps, strong performance,
+            and secure delivery — with growing AI integration experience.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="#projects"
+              className="inline-flex h-11 items-center rounded-lg bg-zinc-100 px-5 text-sm font-semibold text-zinc-900 transition-opacity hover:opacity-90"
+            >
+              View projects
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex h-11 items-center rounded-lg border border-white/15 px-5 text-sm font-semibold text-zinc-200 transition-colors hover:border-cyan-400/40 hover:text-cyan-400"
+            >
+              Get in touch
+            </a>
           </div>
         </div>
       </header>
 
-      {/* About Section - Optimized */}
-      <section id="about" className="py-24 relative z-10">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-5xl font-bold mb-6 gradient-text">
-                About Me
-              </h2>
-              <div
-                className="h-1 bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] mx-auto rounded-full transition-all duration-400"
-                style={{ width: heroInView ? "100px" : "0px" }}
-              />
+      {/* About */}
+      <section id="about" className="relative z-10 py-20 md:py-28">
+        <div className="section-shell">
+          <SectionHeading
+            title="About"
+            subtitle="Four years shipping full-stack products with cross-functional teams."
+          />
+
+          <div className="grid items-start gap-10 md:grid-cols-2 lg:gap-14">
+            <div className="space-y-5">
+              <p className="text-base leading-relaxed text-zinc-400 md:text-lg">
+                MERN Stack Developer and Software Engineer with 4 years of
+                professional experience building and maintaining full-stack web
+                applications, with growing hands-on experience integrating
+                AI-powered features into products.
+              </p>
+              <p className="text-base leading-relaxed text-zinc-400 md:text-lg">
+                Strong expertise in React.js, Next.js, Node.js, Express.js,
+                MongoDB, TypeScript, Redux, SQL/NoSQL databases, REST APIs, and
+                responsive UI development.
+              </p>
+              <div className="flex flex-wrap gap-2 pt-1">
+                {["4+ Years", "Lahore, Pakistan", "MERN + AI"].map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-white/[0.08] px-3 py-1.5 text-sm text-zinc-300"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-start">
-              <div className="space-y-6">
-                <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-                  MERN Stack Developer and Software Engineer with 5 years of
-                  professional experience building and maintaining full-stack
-                  web applications, with growing hands-on experience integrating
-                  AI-powered features and modern AI technologies into web
-                  applications.
-                </p>
-                <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-                  Strong expertise in React.js, Next.js, Node.js, Express.js,
-                  MongoDB, TypeScript, Redux, SQL/NoSQL databases, REST APIs,
-                  and responsive UI development. Comfortable collaborating with
-                  cross-functional teams and leveraging modern AI tools to
-                  improve workflows and product functionality.
-                </p>
-                <div className="flex flex-wrap gap-3 pt-2">
-                  <div className="px-4 py-2 bg-[var(--neon-blue)]/10 border border-[var(--neon-blue)]/30 rounded-full text-[var(--neon-blue)] text-sm font-medium">
-                    5+ Years Experience
+            <div className="flex flex-col gap-4">
+              <div className="grid grid-cols-2 gap-3">
+                {stats2.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="flex min-h-[100px] flex-col items-start justify-center rounded-xl border border-white/[0.08] bg-[var(--card-bg)] p-5"
+                  >
+                    <div className="text-2xl font-semibold text-zinc-100 md:text-3xl">
+                      {stat.value}
+                    </div>
+                    <div className="mt-1 text-sm text-zinc-500">{stat.label}</div>
                   </div>
-                  <div className="px-4 py-2 bg-[var(--neon-purple)]/10 border border-[var(--neon-purple)]/30 rounded-full text-[var(--neon-purple)] text-sm font-medium">
-                    Lahore, Pakistan
-                  </div>
-                  <div className="px-4 py-2 bg-[var(--neon-blue)]/10 border border-[var(--neon-blue)]/30 rounded-full text-[var(--neon-blue)] text-sm font-medium">
-                    MERN + AI
-                  </div>
-                </div>
+                ))}
               </div>
 
-              <div className="flex flex-col gap-5">
-                <div className="grid grid-cols-2 gap-3 lg:gap-4">
-                  {stats2.map((stat: { label: string; value: string }) => (
-                    <div
-                      key={stat.label}
-                      className="p-5 lg:p-6 card-gradient rounded-xl text-center border border-[var(--neon-blue)]/20 transition-all duration-300 hover:scale-105 min-h-[110px] flex flex-col items-center justify-center"
-                    >
-                      <div className="text-2xl lg:text-3xl font-bold gradient-text mb-1">
-                        {stat.value}
-                      </div>
-                      <div className="text-gray-400 text-sm">{stat.label}</div>
-                    </div>
-                  ))}
+              <div className="space-y-4 rounded-xl border border-white/[0.08] bg-[var(--card-bg)] p-5">
+                <div>
+                  <h3 className="mb-1 text-sm font-medium text-zinc-200">
+                    Education
+                  </h3>
+                  <p className="text-sm leading-relaxed text-zinc-500">
+                    MSc Information Technology — University of Education, Lahore
+                    (CGPA 3.26)
+                  </p>
                 </div>
-
-                <div className="space-y-4 p-5 lg:p-6 card-gradient rounded-xl border border-[var(--neon-blue)]/20">
-                  <div>
-                    <h3 className="text-sm font-semibold text-[var(--neon-blue)] mb-1">
-                      Education
-                    </h3>
-                    <p className="text-sm text-gray-400 leading-relaxed">
-                      MSc Information Technology — University of Education,
-                      Lahore (CGPA 3.26)
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold text-[var(--neon-blue)] mb-1">
-                      Certifications
-                    </h3>
-                    <p className="text-sm text-gray-400 leading-relaxed">
-                      MERN Stack Developer — Techmatetech LLC · WordPress
-                      Developer — Rex Technologies
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold text-[var(--neon-blue)] mb-1">
-                      Languages
-                    </h3>
-                    <p className="text-sm text-gray-400 leading-relaxed">
-                      English — Professional Working · Urdu — Native/Bilingual
-                    </p>
-                  </div>
+                <div>
+                  <h3 className="mb-1 text-sm font-medium text-zinc-200">
+                    Certifications
+                  </h3>
+                  <p className="text-sm leading-relaxed text-zinc-500">
+                    MERN Stack Developer — Techmatetech LLC · WordPress
+                    Developer — Rex Technologies
+                  </p>
+                </div>
+                <div>
+                  <h3 className="mb-1 text-sm font-medium text-zinc-200">
+                    Languages
+                  </h3>
+                  <p className="text-sm leading-relaxed text-zinc-500">
+                    English — Professional Working · Urdu — Native/Bilingual
+                  </p>
                 </div>
               </div>
             </div>
@@ -290,69 +275,64 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Experience Section */}
-      <section id="experience" className="py-24 bg-[var(--card-bg)] relative z-10">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6 gradient-text">
-              Experience
-            </h2>
-            <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-6">
-              Every role has centered on shipping products that scale — with
-              performance, security, and reliability treated as first-class
-              requirements, not afterthoughts.
-            </p>
-            <div className="h-1 w-[100px] bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] mx-auto rounded-full" />
-          </div>
+      {/* Experience */}
+      <section
+        id="experience"
+        className="relative z-10 bg-[var(--card-bg)] py-20 md:py-28"
+      >
+        <div className="section-shell">
+          <SectionHeading
+            title="Experience"
+            subtitle="Scalability, performance, and security treated as first-class requirements."
+          />
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
+          <div className="mb-12 grid gap-3 sm:grid-cols-3">
             {[
               {
                 title: "Scalability",
-                text: "Architectures and data flows built to grow with users and features.",
+                text: "Architectures built to grow with users and features.",
               },
               {
                 title: "Performance",
-                text: "Faster APIs, leaner UIs, and optimized database operations.",
+                text: "Faster APIs, leaner UIs, optimized data access.",
               },
               {
                 title: "Security",
-                text: "Auth, access control, and secure handling of sensitive data.",
+                text: "Auth, access control, and careful data handling.",
               },
             ].map((item) => (
               <div
                 key={item.title}
-                className="p-4 rounded-xl border border-[var(--neon-blue)]/20 bg-[var(--dark-bg)]/60 text-center"
+                className="rounded-xl border border-white/[0.08] bg-[var(--dark-bg)] p-4"
               >
-                <h3 className="text-[var(--neon-blue)] font-semibold mb-1">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-gray-400">{item.text}</p>
+                <h3 className="mb-1 font-medium text-zinc-100">{item.title}</h3>
+                <p className="text-sm text-zinc-500">{item.text}</p>
               </div>
             ))}
           </div>
 
           <div className="relative space-y-10">
-            <div className="absolute left-0 top-2 bottom-2 w-px bg-[var(--neon-blue)]/20 hidden sm:block ml-1.5" />
+            <div className="absolute bottom-2 left-0 top-2 ml-1.5 hidden w-px bg-white/[0.08] sm:block" />
             {experience.map((job) => (
-              <article key={`${job.company}-${job.period}`} className="relative sm:pl-10">
-                <div className="hidden sm:block absolute left-0 top-2 w-3 h-3 rounded-full bg-[var(--neon-blue)] ml-0" />
-                <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
+              <article
+                key={`${job.company}-${job.period}`}
+                className="relative sm:pl-10"
+              >
+                <div className="absolute left-0 top-2 ml-0 hidden h-2.5 w-2.5 rounded-full bg-cyan-400 sm:block" />
+                <div className="mb-3 flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
                   <div>
-                    <h3 className="text-xl md:text-2xl font-bold text-white">
+                    <h3 className="text-xl font-semibold text-zinc-100">
                       {job.role}
                     </h3>
-                    <p className="text-[var(--neon-blue)] font-medium">
-                      {job.company}
-                    </p>
+                    <p className="font-medium text-cyan-400">{job.company}</p>
                   </div>
-                  <p className="text-sm text-gray-400">{job.period}</p>
+                  <p className="text-sm text-zinc-500">{job.period}</p>
                 </div>
                 <ul className="space-y-2">
                   {job.bullets.map((bullet) => (
                     <li
                       key={bullet}
-                      className="text-gray-300 text-sm md:text-base leading-relaxed pl-4 border-l border-[var(--neon-blue)]/20"
+                      className="border-l border-white/[0.08] pl-4 text-sm leading-relaxed text-zinc-400 md:text-base"
                     >
                       {bullet}
                     </li>
@@ -364,54 +344,45 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Skills Section - Optimized */}
+      {/* Skills */}
       <section
         id="skills"
         ref={skillsRef}
-        className="py-24 relative z-10"
+        className="relative z-10 py-20 md:py-28"
       >
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6 gradient-text">
-              Technical Skills
-            </h2>
-            <div
-              className="h-1 bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] mx-auto rounded-full transition-all duration-400"
-              style={{ width: skillsInView ? "100px" : "0px" }}
-            />
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="section-shell">
+          <SectionHeading
+            title="Skills"
+            subtitle="Frontend, backend, payments, data, AI, and delivery tooling."
+          />
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {skills.map((skill) => (
-              <div key={skill.name} className="h-full">
-                <SkillCard
-                  name={skill.name}
-                  level={skill.level}
-                  skills={skill.skills}
-                  icon={skill.icon}
-                  isInView={skillsInView}
-                  skillId={skill.skillId}
-                />
-              </div>
+              <SkillCard
+                key={skill.skillId}
+                name={skill.name}
+                level={skill.level}
+                skills={skill.skills}
+                icon={skill.icon}
+                isInView={skillsInView}
+                skillId={skill.skillId}
+              />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Projects Section - Optimized */}
-      <section id="projects" className="py-24 relative z-10">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6 gradient-text">
-              Featured Projects
-            </h2>
-            <div
-              className="h-1 bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] mx-auto rounded-full transition-all duration-400"
-              style={{ width: skillsInView ? "100px" : "0px" }}
-            />
-          </div>
+      {/* Projects */}
+      <section
+        id="projects"
+        className="relative z-10 bg-[var(--card-bg)] py-20 md:py-28"
+      >
+        <div className="section-shell">
+          <SectionHeading
+            title="Projects"
+            subtitle="Featured product work and additional platforms shipped across roles."
+          />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-7xl mx-auto">
+          <div className="mb-14 grid grid-cols-1 gap-5 md:grid-cols-2">
             {projects.map((project) => (
               <ProjectCard
                 key={project.title}
@@ -424,63 +395,51 @@ function HomePage() {
             ))}
           </div>
 
-          <div className="max-w-7xl mx-auto mt-16">
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-6">
-              More selected work
-            </h3>
-            <div className="space-y-0 border-t border-[var(--neon-blue)]/20">
-              {moreProjects.map((project) => (
-                <div
-                  key={project.title}
-                  className="py-5 border-b border-[var(--neon-blue)]/15 grid md:grid-cols-[minmax(0,1fr)_2fr] gap-3 md:gap-6"
-                >
-                  <div>
-                    <h4 className="font-bold text-white">{project.title}</h4>
-                    <p className="text-sm text-[var(--neon-blue)] mt-0.5">
-                      {project.company}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5 mt-2">
-                      {project.tech.map((t) => (
-                        <span
-                          key={t}
-                          className="text-xs text-gray-400 border border-[var(--neon-blue)]/20 px-2 py-0.5 rounded"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+          <h3 className="mb-4 text-lg font-semibold text-zinc-100">
+            More selected work
+          </h3>
+          <div className="border-t border-white/[0.08]">
+            {moreProjects.map((project) => (
+              <div
+                key={project.title}
+                className="grid gap-3 border-b border-white/[0.08] py-5 md:grid-cols-[minmax(0,1fr)_2fr] md:gap-8"
+              >
+                <div>
+                  <h4 className="font-semibold text-zinc-100">{project.title}</h4>
+                  <p className="mt-0.5 text-sm text-cyan-400">{project.company}</p>
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {project.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="rounded border border-white/[0.08] px-2 py-0.5 text-[11px] text-zinc-500"
+                      >
+                        {t}
+                      </span>
+                    ))}
                   </div>
-                  <p className="text-sm md:text-base text-gray-300 leading-relaxed">
-                    {project.description}
-                  </p>
                 </div>
-              ))}
-            </div>
+                <p className="text-sm leading-relaxed text-zinc-400 md:text-base">
+                  {project.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Contact Section - Optimized */}
-      <section id="contact" className="py-24 relative z-10">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6 gradient-text">
-              Get in Touch
-            </h2>
-            <div
-              className="h-1 bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] mx-auto rounded-full transition-all duration-400"
-              style={{ width: skillsInView ? "100px" : "0px" }}
-            />
-          </div>
-
+      {/* Contact */}
+      <section id="contact" className="relative z-10 py-20 md:py-28">
+        <div className="section-shell">
+          <SectionHeading
+            title="Contact"
+            subtitle="Reach out by email, phone, or LinkedIn."
+          />
           <ContactForm />
         </div>
       </section>
 
-      <footer className="py-12 text-center text-gray-400 relative z-10 border-t border-[var(--neon-blue)]/20">
-        <p className="text-lg">
-          © 2026 Muhammad Mudassar. All rights reserved.
-        </p>
+      <footer className="relative z-10 border-t border-white/[0.08] py-10 text-center text-sm text-zinc-500">
+        © 2026 Muhammad Mudassar. All rights reserved.
       </footer>
     </div>
   );
