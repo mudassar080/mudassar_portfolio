@@ -1,5 +1,15 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, Globe, Server, Database, Cpu, Cloud, Code2, CreditCard, CheckCircle, Star, Zap } from "lucide-react";
+import {
+  ArrowLeft,
+  Globe,
+  Server,
+  Database,
+  Cpu,
+  Cloud,
+  Code2,
+  CreditCard,
+  CheckCircle,
+} from "lucide-react";
 
 interface SkillDetail {
   id: string;
@@ -20,52 +30,115 @@ const skillsData: SkillDetail[] = [
   {
     id: "frontend",
     name: "Frontend Development",
-    description: "Creating stunning, responsive, and user-friendly web interfaces that engage users and drive conversions.",
-    icon: <Globe className="w-8 h-8" />,
+    description:
+      "Building responsive, accessible interfaces with React, Next.js, TypeScript, and modern UI systems.",
+    icon: <Globe className="h-7 w-7" />,
     level: 95,
-    technologies: ["React & Next.js", "TypeScript", "Tailwind CSS", "Webflow", "WordPress", "Plasmic", "Framer Motion", "Material-UI", "Firebase Auth"],
+    technologies: [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Material UI",
+      "Ant Design",
+      "Axios",
+      "Figma",
+    ],
     services: [
       {
-        title: "Modern Web Applications",
-        description: "Build cutting-edge web applications with React, Next.js, and TypeScript for optimal performance and user experience.",
-        features: ["Responsive Design", "Progressive Web Apps", "SEO Optimization", "Performance Optimization"],
-        benefits: ["Faster Loading Times", "Better User Engagement", "Higher Conversion Rates", "Mobile-First Approach"]
+        title: "Modern web applications",
+        description:
+          "SPA and SSR apps with React and Next.js focused on performance and clean architecture.",
+        features: [
+          "Responsive design",
+          "TypeScript-first UI",
+          "Design system integration",
+          "API-driven interfaces",
+        ],
+        benefits: [
+          "Faster delivery",
+          "Better UX",
+          "Maintainable code",
+          "Mobile-ready",
+        ],
       },
       {
-        title: "No-Code/Low-Code Solutions",
-        description: "Create professional websites using Webflow, WordPress, and Plasmic for clients who want easy content management.",
-        features: ["Drag & Drop Builders", "Custom Templates", "Content Management", "E-commerce Integration"],
-        benefits: ["Quick Deployment", "Easy Maintenance", "Cost-Effective", "Client-Friendly"]
-      }
-    ]
+        title: "UI systems & tooling",
+        description:
+          "Interfaces built with Material UI, Ant Design, Bootstrap, and Figma-aligned workflows.",
+        features: [
+          "Component libraries",
+          "Design handoff",
+          "Accessible patterns",
+          "Cross-browser polish",
+        ],
+        benefits: [
+          "Consistent UI",
+          "Faster iteration",
+          "Lower design debt",
+          "Clear handoff",
+        ],
+      },
+    ],
   },
   {
     id: "backend",
     name: "Backend & API Development",
-    description: "Building robust, scalable backend systems and APIs that power modern web applications and mobile apps.",
-    icon: <Server className="w-8 h-8" />,
+    description:
+      "APIs and services with Node.js, Nest.js, and Express.js for scalable products.",
+    icon: <Server className="h-7 w-7" />,
     level: 90,
-    technologies: ["Node.js & Express", "Nest.js", "RESTful APIs", "Microservices", "API Integration", "JWT Authentication"],
+    technologies: [
+      "Node.js",
+      "Nest.js",
+      "Express.js",
+      "REST APIs",
+      "Microservices",
+      "API Integration",
+    ],
     services: [
       {
-        title: "Custom API Development",
-        description: "Design and develop RESTful APIs and GraphQL endpoints for seamless data exchange between frontend and backend.",
-        features: ["RESTful APIs", "JWT Authentication", "Rate Limiting", "API Documentation"],
-        benefits: ["Scalable Architecture", "Secure Data Transfer", "Easy Integration", "Comprehensive Documentation"]
+        title: "API development",
+        description:
+          "Design and implement REST APIs with authentication, validation, and clear contracts.",
+        features: [
+          "REST architecture",
+          "Auth & permissions",
+          "Third-party integrations",
+          "Documented endpoints",
+        ],
+        benefits: [
+          "Secure data flow",
+          "Clear contracts",
+          "Easier frontend work",
+          "Scalable services",
+        ],
       },
       {
-        title: "Microservices Architecture",
-        description: "Build modular, scalable applications using microservices for better maintainability and deployment flexibility.",
-        features: ["Service Decomposition", "Load Balancing", "Service Discovery", "Fault Tolerance"],
-        benefits: ["Independent Deployment", "Technology Flexibility", "Better Scalability", "Easier Maintenance"]
-      }
-    ]
+        title: "Scalable services",
+        description:
+          "Structure backends for maintainability with modular services and reliable data flows.",
+        features: [
+          "Nest.js modules",
+          "Express services",
+          "Microservice patterns",
+          "Performance-minded queries",
+        ],
+        benefits: [
+          "Independent deploy",
+          "Better reliability",
+          "Easier growth",
+          "Cleaner ownership",
+        ],
+      },
+    ],
   },
   {
     id: "payments",
     name: "Payments & Billing",
-    description: "End-to-end payment flows with Stripe — checkout, subscriptions, Connect payouts, webhooks, and secure billing logic.",
-    icon: <CreditCard className="w-8 h-8" />,
+    description:
+      "End-to-end payment flows with Stripe — checkout, subscriptions, Connect, and webhooks.",
+    icon: <CreditCard className="h-7 w-7" />,
     level: 90,
     technologies: [
       "Stripe Integration",
@@ -74,129 +147,256 @@ const skillsData: SkillDetail[] = [
       "Subscription Billing",
       "Payment Webhooks",
       "Trials & Usage Limits",
-      "Secure Payment Handling",
     ],
     services: [
       {
         title: "Stripe checkout & subscriptions",
-        description: "Integrate Stripe for one-time payments, recurring subscriptions, free trials, and usage-based billing limits.",
-        features: ["Checkout sessions", "Subscription plans", "Trial periods", "Usage metering"],
-        benefits: ["Faster monetization", "Reliable billing", "Fewer payment bugs", "Clear upgrade paths"]
+        description:
+          "One-time payments, recurring plans, free trials, and usage-based billing limits.",
+        features: [
+          "Checkout sessions",
+          "Subscription plans",
+          "Trial periods",
+          "Usage metering",
+        ],
+        benefits: [
+          "Faster monetization",
+          "Reliable billing",
+          "Fewer payment bugs",
+          "Clear upgrades",
+        ],
       },
       {
         title: "Connect & marketplace payouts",
-        description: "Build marketplace-style payment flows with Stripe Connect, webhooks, and secure handling of sensitive payment data.",
-        features: ["Stripe Connect", "Webhook handling", "Payout workflows", "PCI-aware design"],
-        benefits: ["Trusted checkout", "Automated reconciliation", "Secure money movement", "Scalable commerce"]
-      }
-    ]
+        description:
+          "Marketplace-style flows with Stripe Connect, webhooks, and secure payment handling.",
+        features: [
+          "Stripe Connect",
+          "Webhook handling",
+          "Payout workflows",
+          "PCI-aware design",
+        ],
+        benefits: [
+          "Trusted checkout",
+          "Automated reconciliation",
+          "Secure money movement",
+          "Scalable commerce",
+        ],
+      },
+    ],
   },
   {
     id: "database",
     name: "Database & Data Management",
-    description: "Designing efficient database solutions and managing data to ensure optimal performance and reliability.",
-    icon: <Database className="w-8 h-8" />,
+    description:
+      "SQL and NoSQL modeling with MongoDB and relational databases for reliable storage.",
+    icon: <Database className="h-7 w-7" />,
     level: 85,
-    technologies: ["PostgreSQL", "MongoDB", "SQL", "NoSQL"],
+    technologies: ["MongoDB", "SQL", "NoSQL", "PostgreSQL"],
     services: [
       {
-        title: "Database Design & Optimization",
-        description: "Create efficient database schemas and optimize queries for better performance and data integrity.",
-        features: ["Schema Design", "Query Optimization", "Indexing Strategies", "Data Normalization"],
-        benefits: ["Faster Queries", "Reduced Costs", "Better Performance", "Data Integrity"]
+        title: "Data modeling",
+        description:
+          "Schemas designed around product workflows, integrity, and query patterns.",
+        features: [
+          "MongoDB schemas",
+          "SQL design",
+          "Indexing strategies",
+          "Migration support",
+        ],
+        benefits: [
+          "Faster queries",
+          "Data integrity",
+          "Lower cost",
+          "Clear structure",
+        ],
       },
       {
-        title: "Data Migration & Integration",
-        description: "Seamlessly migrate data between systems and integrate multiple data sources for unified access.",
-        features: ["Data Migration", "ETL Processes", "Data Validation", "Backup Strategies"],
-        benefits: ["Zero Downtime", "Data Consistency", "Risk Mitigation", "Smooth Transitions"]
-      }
-    ]
+        title: "Query & performance",
+        description:
+          "Optimize reads and writes so listings and transactional flows stay fast.",
+        features: [
+          "Query tuning",
+          "Aggregation pipelines",
+          "Relational joins",
+          "Caching-friendly design",
+        ],
+        benefits: [
+          "Snappier apps",
+          "Stable under load",
+          "Better UX",
+          "Fewer bottlenecks",
+        ],
+      },
+    ],
   },
   {
     id: "ai",
-    name: "AI & Automation Services",
-    description: "Integrating cutting-edge AI technologies to automate processes and create intelligent applications.",
-    icon: <Cpu className="w-8 h-8" />,
+    name: "AI & AI-Assisted Development",
+    description:
+      "Integrating LLMs and AI APIs into products, using tools like Cursor and Claude.",
+    icon: <Cpu className="h-7 w-7" />,
     level: 88,
-    technologies: ["OpenAI Integration", "ChatGPT APIs", "AI-Powered Features", "Automation Scripts", "Machine Learning", "Data Analysis", "Smart Chatbots"],
+    technologies: [
+      "LLM Integration",
+      "AI API Integration",
+      "Cursor",
+      "Claude",
+    ],
     services: [
       {
-        title: "AI-Powered Applications",
-        description: "Integrate OpenAI and ChatGPT APIs to create intelligent features that enhance user experience and automate tasks.",
-        features: ["ChatGPT Integration", "Natural Language Processing", "Content Generation", "Smart Recommendations"],
-        benefits: ["Enhanced User Experience", "Automated Customer Support", "Content Creation", "Personalized Services"]
+        title: "Product AI features",
+        description:
+          "Wire AI capabilities into real workflows — generation, assistance, and API-backed features.",
+        features: [
+          "LLM API integration",
+          "Prompted product flows",
+          "Usage-aware features",
+          "Safe failure handling",
+        ],
+        benefits: [
+          "Smarter products",
+          "Faster workflows",
+          "Better UX",
+          "Competitive edge",
+        ],
       },
       {
-        title: "Process Automation",
-        description: "Automate repetitive tasks and workflows to increase efficiency and reduce operational costs.",
-        features: ["Workflow Automation", "Data Processing", "Report Generation", "Task Scheduling"],
-        benefits: ["Increased Efficiency", "Cost Reduction", "Error Reduction", "Time Savings"]
-      }
-    ]
+        title: "AI-assisted engineering",
+        description:
+          "Use modern AI tooling to improve development speed and iteration quality.",
+        features: [
+          "Cursor workflows",
+          "Claude-assisted reviews",
+          "Faster prototyping",
+          "Clearer implementation paths",
+        ],
+        benefits: [
+          "Faster delivery",
+          "Higher quality",
+          "Less toil",
+          "Better focus",
+        ],
+      },
+    ],
   },
   {
     id: "cloud",
-    name: "Cloud & DevOps",
-    description: "Deploying and managing applications in the cloud with modern DevOps practices for scalability and reliability.",
-    icon: <Cloud className="w-8 h-8" />,
+    name: "DevOps & Version Control",
+    description:
+      "Shipping with Git/GitHub, CI/CD, and cloud deployments on Vercel and AWS.",
+    icon: <Cloud className="h-7 w-7" />,
     level: 85,
-    technologies: ["AWS Services", "Firebase", "Google Cloud", "Docker & Kubernetes", "CI/CD Pipelines", "Serverless Architecture", "Cloud Deployment", "Performance Optimization", "Security Best Practices"],
+    technologies: [
+      "Git",
+      "GitHub",
+      "CI/CD",
+      "Deployment Automation",
+      "Vercel",
+      "AWS",
+    ],
     services: [
       {
-        title: "Cloud Infrastructure",
-        description: "Design and deploy scalable cloud infrastructure using AWS, Google Cloud, and Firebase for optimal performance.",
-        features: ["Cloud Architecture", "Auto Scaling", "Load Balancing", "CDN Integration"],
-        benefits: ["High Availability", "Global Performance", "Cost Optimization", "Automatic Scaling"]
+        title: "Deployment pipelines",
+        description:
+          "Automate builds and releases so features move from branch to production smoothly.",
+        features: [
+          "CI/CD setup",
+          "Vercel deployments",
+          "AWS services",
+          "Environment management",
+        ],
+        benefits: [
+          "Faster releases",
+          "Fewer deploy errors",
+          "Repeatable process",
+          "Safer rollbacks",
+        ],
       },
       {
-        title: "DevOps & CI/CD",
-        description: "Implement continuous integration and deployment pipelines for faster, more reliable software delivery.",
-        features: ["CI/CD Pipelines", "Docker Containers", "Kubernetes Orchestration", "Monitoring & Logging"],
-        benefits: ["Faster Deployment", "Reduced Errors", "Better Collaboration", "Automated Testing"]
-      }
-    ]
+        title: "Collaboration hygiene",
+        description:
+          "Branching, reviews, and release practices that keep teams aligned.",
+        features: [
+          "GitHub workflows",
+          "PR-based delivery",
+          "Release automation",
+          "Rollback-friendly deploys",
+        ],
+        benefits: [
+          "Clear ownership",
+          "Better reviews",
+          "Stable history",
+          "Team velocity",
+        ],
+      },
+    ],
   },
   {
     id: "ecommerce",
     name: "State & Testing",
-    description: "Client state with Redux, API verification with Postman, unit tests with Jest, and delivery tracking in Jira.",
-    icon: <Code2 className="w-8 h-8" />,
+    description:
+      "Client state with Redux, API checks with Postman, unit tests with Jest, tracking in Jira.",
+    icon: <Code2 className="h-7 w-7" />,
     level: 90,
     technologies: ["Redux", "Jest", "Jira", "Postman"],
     services: [
       {
         title: "State management",
-        description: "Predictable client state for complex React apps using Redux patterns that stay maintainable.",
-        features: ["Redux stores", "Async data flows", "Shared app state", "Debuggable actions"],
-        benefits: ["Predictable UI", "Easier debugging", "Scalable client logic", "Team consistency"]
+        description:
+          "Predictable client state for complex React apps using maintainable Redux patterns.",
+        features: [
+          "Redux stores",
+          "Async data flows",
+          "Shared app state",
+          "Debuggable actions",
+        ],
+        benefits: [
+          "Predictable UI",
+          "Easier debugging",
+          "Scalable client logic",
+          "Team consistency",
+        ],
       },
       {
         title: "Quality & delivery",
-        description: "Jest coverage for critical logic, Postman collections for APIs, and Jira for sprint visibility.",
-        features: ["Jest test cases", "API verification", "Regression checks", "Sprint tracking"],
-        benefits: ["Fewer regressions", "Faster QA", "Clear delivery status", "Reliable releases"]
-      }
-    ]
-  }
+        description:
+          "Jest for critical logic, Postman for APIs, and Jira for sprint visibility.",
+        features: [
+          "Jest test cases",
+          "API verification",
+          "Regression checks",
+          "Sprint tracking",
+        ],
+        benefits: [
+          "Fewer regressions",
+          "Faster QA",
+          "Clear delivery status",
+          "Reliable releases",
+        ],
+      },
+    ],
+  },
 ];
 
 const SkillsDetail = () => {
   const { skillId } = useParams<{ skillId: string }>();
   const navigate = useNavigate();
-  
-  const skill = skillsData.find(s => s.id === skillId);
+  const skill = skillsData.find((s) => s.id === skillId);
 
   if (!skill) {
     return (
-      <div className="min-h-screen bg-[var(--dark-bg)] flex items-center justify-center">
+      <div className="flex min-h-screen items-center justify-center bg-[var(--dark-bg)] px-6">
         <div className="text-center">
-          <h1 className="text-4xl font-bold gradient-text mb-4">Skill Not Found</h1>
+          <h1 className="mb-4 text-3xl font-semibold text-zinc-100">
+            Skill not found
+          </h1>
           <button
-            onClick={() => navigate('/')}
-            className="px-6 py-3 bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] rounded-full text-white font-semibold"
+            type="button"
+            onClick={() => navigate("/")}
+            className="rounded-lg bg-zinc-100 px-5 py-2.5 text-sm font-semibold text-zinc-900"
           >
-            Go Back Home
+            Back home
           </button>
         </div>
       </div>
@@ -204,158 +404,111 @@ const SkillsDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[var(--dark-bg)] relative overflow-x-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[var(--neon-blue)]/10 to-[var(--neon-purple)]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-[var(--neon-purple)]/10 to-[var(--neon-blue)]/10 rounded-full blur-3xl" />
-      </div>
-
-      {/* Navigation */}
-      <div className="fixed top-6 left-6 z-50">
+    <div className="relative min-h-screen overflow-x-hidden bg-[var(--dark-bg)]">
+      <div className="fixed left-6 top-6 z-50">
         <button
-          onClick={() => navigate('/')}
-          className="flex items-center gap-2 px-4 py-2 bg-[var(--card-bg)]/80 backdrop-blur-md rounded-full text-white border border-[var(--neon-blue)]/20 hover:border-[var(--neon-blue)]/40 transition-all duration-300 hover:scale-105 hover:-translate-x-1 active:scale-95"
+          type="button"
+          onClick={() => navigate("/")}
+          className="flex items-center gap-2 rounded-lg border border-white/[0.08] bg-[var(--card-bg)] px-4 py-2 text-sm text-zinc-200 hover:border-cyan-400/40 hover:text-cyan-400"
         >
-          <ArrowLeft className="w-4 h-4" />
-          Back to Portfolio
+          <ArrowLeft className="h-4 w-4" />
+          Back to portfolio
         </button>
       </div>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 relative z-10">
-        <div className="container mx-auto px-6">
-          <div className="text-center max-w-4xl mx-auto">
-            {/* Skill Icon */}
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] rounded-2xl mb-8">
-              {skill.icon}
-            </div>
-
-            {/* Skill Title */}
-            <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-6">
-              {skill.name}
-            </h1>
-
-            {/* Skill Description */}
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              {skill.description}
-            </p>
-
-            {/* Skill Level */}
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--neon-blue)]/10 border border-[var(--neon-blue)]/30 rounded-full">
-              <Star className="w-5 h-5 text-[var(--neon-blue)]" />
-              <span className="text-[var(--neon-blue)] font-semibold">{skill.level}% Expertise</span>
-            </div>
+      <section className="relative z-10 pb-16 pt-28">
+        <div className="section-shell max-w-3xl text-center">
+          <div className="mb-6 inline-flex rounded-xl border border-white/[0.08] bg-white/[0.03] p-4 text-cyan-400">
+            {skill.icon}
           </div>
+          <h1 className="mb-4 text-4xl font-semibold tracking-tight text-zinc-100 md:text-5xl">
+            {skill.name}
+          </h1>
+          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-zinc-400">
+            {skill.description}
+          </p>
+          <p className="mt-4 text-sm text-zinc-500">{skill.level}% proficiency</p>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-20 relative z-10">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center gradient-text mb-16">
-            Services I Offer
+      <section className="relative z-10 pb-16">
+        <div className="section-shell">
+          <h2 className="mb-8 text-center text-2xl font-semibold text-zinc-100">
+            What I deliver
           </h2>
-
-          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-2">
             {skill.services.map((service) => (
               <div
                 key={service.title}
-                className="card-gradient p-8 rounded-2xl border border-[var(--neon-blue)]/20 hover:border-[var(--neon-blue)]/40 transition-all duration-500 hover:scale-105"
+                className="rounded-2xl border border-white/[0.08] bg-[var(--card-bg)] p-6"
               >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] rounded-xl">
-                    <Zap className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white">{service.title}</h3>
-                </div>
-
-                <p className="text-gray-300 mb-6 leading-relaxed">
+                <h3 className="mb-2 text-xl font-semibold text-zinc-100">
+                  {service.title}
+                </h3>
+                <p className="mb-5 text-sm leading-relaxed text-zinc-400">
                   {service.description}
                 </p>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  {/* Features */}
-                  <div>
-                    <h4 className="text-lg font-semibold text-[var(--neon-blue)] mb-4">Key Features</h4>
-                    <ul className="space-y-2">
-                      {service.features.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-center gap-2 text-gray-300"
-                        >
-                          <CheckCircle className="w-4 h-4 text-[var(--neon-blue)] flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Benefits */}
-                  <div>
-                    <h4 className="text-lg font-semibold text-[var(--neon-purple)] mb-4">Client Benefits</h4>
-                    <ul className="space-y-2">
-                      {service.benefits.map((benefit) => (
-                        <li
-                          key={benefit}
-                          className="flex items-center gap-2 text-gray-300"
-                        >
-                          <Star className="w-4 h-4 text-[var(--neon-purple)] flex-shrink-0" />
-                          {benefit}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+                <ul className="space-y-2">
+                  {service.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-center gap-2 text-sm text-zinc-400"
+                    >
+                      <CheckCircle className="h-4 w-4 shrink-0 text-cyan-400" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Technologies Section */}
-      <section className="py-20 bg-[var(--card-bg)] relative z-10">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center gradient-text mb-16">
-            Technologies & Tools
+      <section className="relative z-10 bg-[var(--card-bg)] py-16">
+        <div className="section-shell max-w-4xl">
+          <h2 className="mb-8 text-center text-2xl font-semibold text-zinc-100">
+            Technologies & tools
           </h2>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {skill.technologies.map((tech) => (
-                <div
-                  key={tech}
-                  className="p-4 bg-[var(--dark-bg)] rounded-xl border border-[var(--neon-blue)]/20 hover:border-[var(--neon-blue)]/40 transition-all duration-300 text-center hover:scale-105 hover:-translate-y-1"
-                >
-                  <span className="text-white font-medium">{tech}</span>
-                </div>
-              ))}
-            </div>
+          <div className="flex flex-wrap justify-center gap-2">
+            {skill.technologies.map((tech) => (
+              <span
+                key={tech}
+                className="rounded-lg border border-white/[0.08] bg-[var(--dark-bg)] px-3 py-2 text-sm text-zinc-300"
+              >
+                {tech}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 relative z-10">
-        <div className="container mx-auto px-6 text-center">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-4xl font-bold gradient-text mb-6">
-              Ready to Get Started?
-            </h2>
-            <p className="text-xl text-gray-300 mb-8">
-              Let's discuss how I can help you implement these solutions for your project.
-            </p>
-            <button
-              onClick={() => navigate('/#contact')}
-              className="px-8 py-4 bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-purple)] rounded-full text-white font-semibold hover:shadow-lg hover:shadow-[var(--neon-blue)]/25 transition-all duration-300 hover:scale-105 hover:-translate-y-1 active:scale-95"
-            >
-              Get in Touch
-            </button>
-          </div>
+      <section className="relative z-10 py-16">
+        <div className="section-shell max-w-xl text-center">
+          <h2 className="mb-3 text-2xl font-semibold text-zinc-100">
+            Ready to build?
+          </h2>
+          <p className="mb-6 text-zinc-400">
+            Let&apos;s talk about how this skill set fits your next project.
+          </p>
+          <button
+            type="button"
+            onClick={() => {
+              navigate("/");
+              setTimeout(() => {
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }, 100);
+            }}
+            className="rounded-lg bg-zinc-100 px-6 py-3 text-sm font-semibold text-zinc-900 hover:opacity-90"
+          >
+            Get in touch
+          </button>
         </div>
       </section>
     </div>
   );
 };
 
-export default SkillsDetail; 
+export default SkillsDetail;
